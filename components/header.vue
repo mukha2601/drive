@@ -2,12 +2,12 @@
   <div class="w-full flex justify-between border-2 h-[60px] items-center">
     <NuxtImg src="/logo.png" class="w-14 h-14 border-e-2 inset-0 p-2" />
     <div class="nav h-full border-x-2 flex gap-4 px-4 items-center">
-      <NuxtLink to="/">CARS</NuxtLink>
-      <NuxtLink to="/">BRAND</NuxtLink>
-      <NuxtLink to="/">SERVICES</NuxtLink>
-      <NuxtLink to="/">ABOUT US</NuxtLink>
-      <NuxtLink to="/">CONTACTS</NuxtLink>
-      <NuxtLink to="/">BLOG</NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/">CARS</NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/">BRAND</NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/">SERVICES</NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/">ABOUT US</NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/">CONTACTS</NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/">BLOG</NuxtLink>
     </div>
 
     <div class="flex h-full border-s-2">
