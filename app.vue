@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-[1200px] mx-auto">
+  <div class="max-w-[1300px] mx-auto">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
@@ -12,6 +12,7 @@
 * {
   border-color: black;
   color: black;
+  scroll-behavior: smooth
 }
 
 body {

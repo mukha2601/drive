@@ -31,13 +31,32 @@ const nextSlide = () => {
 };
 
 onMounted(() => {
-  const data = fetch("https://api.autozoomrental.com/api/brands/");
-  data
+  const brands = fetch("https://api.autozoomrental.com/api/brands/");
+  const cars = fetch("https://api.autozoomrental.com/api/cars");
+
+  brands
     .then((res) => res.json())
     .then((res) => {
       console.log(res.data);
 
       store.brands = res.data;
+    });
+
+  cars
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+      store.carsAll = res.data;
+      res.data.forEach((element) => {
+        if (element.category.name_en == "Luxury Cars") {
+          store.luxuryCars.push(element);
+        }
+      });
+      res.data.forEach((element) => {
+        if (element.category.name_en == "Sports Cars") {
+          store.sportCars.push(element);
+        }
+      });
     });
 });
 </script>
@@ -79,7 +98,7 @@ onMounted(() => {
       </div>
     </div>
   </section>
-  <Section label="Brands">
+  <Section id="brands" label="Brands">
     <Swiper
       :space-between="20"
       :grid="{ rows: 2, fill: 'row' }"
@@ -97,6 +116,8 @@ onMounted(() => {
     </Swiper>
   </Section>
   <Section>
-    <ChangeCarsBox label="BUDGET CARS RENTAL DUBAI"></ChangeCarsBox>
+    <ChangeCarsBox label="BUDGET CARS RENTAL DUBAI">
+      <ChangeCarsCard />
+    </ChangeCarsBox>
   </Section>
 </template>
