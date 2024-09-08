@@ -12,8 +12,8 @@
 
     <div class="flex h-full border-s-2">
       <div class="lang flex border-e-2">
-        <button class="h-full px-4 border-e-2">RU</button>
-        <button class="h-full px-4">UZ</button>
+        <button class="h-full px-4 border-e-2 hover:bg-orange-500">RU</button>
+        <button class="h-full px-4 hover:bg-orange-500">UZ</button>
       </div>
       <div class="search p-2">
         <input
