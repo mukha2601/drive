@@ -4,7 +4,6 @@ import {
   Navigation,
   Pagination,
   Scrollbar,
-  A11y,
   Zoom,
   Grid,
 } from "swiper/modules";
@@ -55,6 +54,26 @@ onMounted(() => {
       res.data.forEach((element) => {
         if (element.category.name_en == "Sports Cars") {
           store.sportCars.push(element);
+        }
+      });
+      res.data.forEach((element) => {
+        if (element.category.name_en == "Budget Cars") {
+          store.budgetCars.push(element);
+        }
+      });
+      res.data.forEach((element) => {
+        if (element.category.name_en == "SUV") {
+          store.suvCars.push(element);
+        }
+      });
+      res.data.forEach((element) => {
+        if (element.category.name_en.trim() == "Muscle") {
+          store.muscleCars.push(element);
+        }
+      });
+      res.data.forEach((element) => {
+        if (element.category.name_en == "American Brands") {
+          store.americanCars.push(element);
         }
       });
     });
