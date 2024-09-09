@@ -1,12 +1,6 @@
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import {
-  Navigation,
-  Pagination,
-  Scrollbar,
-  Zoom,
-  Grid,
-} from "swiper/modules";
+import { Navigation, Pagination, Scrollbar, Zoom, Grid } from "swiper/modules";
 import "swiper/css/grid";
 import "swiper/swiper-bundle.css";
 import { useStore } from "@/store";
@@ -136,7 +130,18 @@ onMounted(() => {
   </Section>
   <Section>
     <ChangeCarsBox label="BUDGET CARS RENTAL DUBAI">
-      <ChangeCarsCard />
+      <div v-for="item in store.budgetCars">
+        <Swiper :space-between="20" :slides-per-view="6" >
+          <SwiperSlide>
+            <ChangeCarsCard
+              :img="
+                item.car_images.find((image) => image.is_main)?.image.src ||
+                item.car_images[0].image.src
+              "
+            />
+          </SwiperSlide>
+        </Swiper>
+      </div>
     </ChangeCarsBox>
   </Section>
 </template>
