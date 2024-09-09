@@ -129,19 +129,43 @@ onMounted(() => {
     </Swiper>
   </Section>
   <Section>
-    <ChangeCarsBox label="BUDGET CARS RENTAL DUBAI">
-      <div v-for="item in store.budgetCars">
-        <Swiper :space-between="20" :slides-per-view="6" >
-          <SwiperSlide>
-            <ChangeCarsCard
-              :img="
-                item.car_images.find((image) => image.is_main)?.image.src ||
-                item.car_images[0].image.src
-              "
-            />
-          </SwiperSlide>
-        </Swiper>
+    <div class="budgetCars">
+      <div class="flex gap-4 justify-between w-full items-center mb-6">
+        <h1 class="text-4xl">BUDGET CARS</h1>
+        <NuxtLink to="#">see all</NuxtLink>
       </div>
-    </ChangeCarsBox>
+      <Swiper :slides-per-view="3.5" :space-between="20">
+        <SwiperSlide v-for="item in store.budgetCars" :key="item.id">
+          <ChangeCarsCard
+            :img="
+              item.car_images.find((image) => image.is_main)?.image.src ||
+              item.car_images[0].image.src
+            "
+            :price="item.price_in_aed + ' aed/' + item.price_in_usd + ' usd'"
+            :name="item.brand.title + ' ' + item.model.name"
+            :perday="item.limitperday"
+          />
+        </SwiperSlide>
+      </Swiper>
+    </div>
+    <div class="budgetCars">
+      <div class="flex gap-4 justify-between w-full items-center mb-6">
+        <h1 class="text-4xl">BUDGET CARS</h1>
+        <NuxtLink to="#">see all</NuxtLink>
+      </div>
+      <Swiper :slides-per-view="3.5" :space-between="20">
+        <SwiperSlide v-for="item in store.budgetCars" :key="item.id">
+          <ChangeCarsCard
+            :img="
+              item.car_images.find((image) => image.is_main)?.image.src ||
+              item.car_images[0].image.src
+            "
+            :price="item.price_in_aed + ' aed/' + item.price_in_usd + ' usd'"
+            :name="item.brand.title + ' ' + item.model.name"
+            :perday="item.limitperday"
+          />
+        </SwiperSlide>
+      </Swiper>
+    </div>
   </Section>
 </template>
