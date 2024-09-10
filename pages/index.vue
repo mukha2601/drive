@@ -115,10 +115,10 @@ const titles = [
           Best sports car & supercar rental Dubai, Exclusive offers on luxury
           car rental Dubai Cheap price
         </p>
-        <div class="flex items-center">
-          <NuxtLink to="/">RENT A CAR DUBAI CATALOG</NuxtLink>
-          <UIcon name="material-symbols:chevron-right" class="w-8 h-8" />
-        </div>
+        <Button
+          label="RENT A CAR DUBAI CATALOG"
+          icon="material-symbols-light:chevron-right"
+        />
       </div>
       <div class="right col-span-2 h-full p-4 relative">
         <div
@@ -136,8 +136,8 @@ const titles = [
           </SwiperSlide>
         </Swiper>
         <div class="absolute bottom-4 right-4 flex gap-4 z-10">
-          <button @click="prevSlide">prev</button>
-          <button @click="nextSlide">next</button>
+          <Button label="prev" @click="prevSlide" />
+          <Button label="next" @click="nextSlide" />
         </div>
       </div>
     </div>
