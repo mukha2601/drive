@@ -2,7 +2,7 @@
   <div>
     <button type="button" class="flex gap-4 items-center border-2 p-2 hover:bg-orange-500">
       <p>{{ label }}</p>
-      <UIcon :name="icon" class="w-12 h-12" />
+      <!-- <UIcon :name="icon" class="w-12 h-12" /> -->
     </button>
   </div>
 </template>

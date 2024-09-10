@@ -1,9 +1,13 @@
 <template>
-  <div class="w-full flex justify-between border-2 h-[60px] items-center sticky top-0 z-10 backdrop-blur-md">
-    <NuxtImg src="/logo.png" class="w-14 h-14 border-e-2 inset-0 p-2" />
+  <div
+    class="w-full flex justify-between border-2 h-[60px] items-center sticky top-0 z-10 backdrop-blur-md"
+  >
+    <NuxtLink to="/">
+      <NuxtImg src="/logo.png" class="w-14 h-14 border-e-2 inset-0 p-2" />
+    </NuxtLink>
     <div class="nav h-full border-x-2 flex gap-4 px-4 items-center">
-      <NuxtLink class="hover:text-orange-500" to="/">CARS</NuxtLink>
-      <NuxtLink class="hover:text-orange-500" to="#brands">BRAND</NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/cars">CARS</NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/">BRAND</NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/">SERVICES</NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/">ABOUT US</NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/">CONTACTS</NuxtLink>

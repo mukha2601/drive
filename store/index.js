@@ -12,6 +12,7 @@ export const useStore = defineStore("home", {
       convertibleCars: [],
       suvCars: [],
       americanCars: [],
+      filter: [],
     };
   },
 });

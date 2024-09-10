@@ -115,24 +115,22 @@ const titles = [
           Best sports car & supercar rental Dubai, Exclusive offers on luxury
           car rental Dubai Cheap price
         </p>
-        <Button
-          label="RENT A CAR DUBAI CATALOG"
-          icon="material-symbols-light:chevron-right"
-        />
+        <Button label="RENT A CAR DUBAI CATALOG" />
       </div>
       <div class="right col-span-2 h-full p-4 relative">
         <div
           class="circle w-96 h-96 bg-orange-500 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         ></div>
         <Swiper slides-per-view="1" :loop="true" @swiper="onSwiper">
-          <SwiperSlide :zoom="true">
-            <img src="../assets/1.png" />
-          </SwiperSlide>
-          <SwiperSlide :zoom="true">
-            <img src="../assets/2.png" />
-          </SwiperSlide>
-          <SwiperSlide :zoom="true">
-            <img src="../assets/3.png" />
+          <SwiperSlide :zoom="true" v-for="item in store.luxuryCars">
+            <NuxtImg
+              class="w-[500px]"
+              :src="
+                'https://api.autozoomrental.com/api/uploads/images/' +
+                  item.car_images.find((image) => image.is_main)?.image.src ||
+                item.car_images[0].image.src
+              "
+            />
           </SwiperSlide>
         </Swiper>
         <div class="absolute bottom-4 right-4 flex gap-4 z-10">
@@ -234,42 +232,39 @@ const titles = [
     </div>
   </Section>
   <Section :label="'faq'">
-    <template>
-      <UAccordion
-        color="white"
-        variant="outline"
-        size="xl"
-        :items="[
-          {
-            label:
-              'What is the minimum age requirements to rent a car in Dubai ?',
-            content:
-              'Drivers under 25 must have a license for a minimum of three years. The same applies for the person(s) whose name(s) is/are mentioned as additional driver.',
-          },
-          {
-            label: 'What do you need for a luxury car rental in Dubai ?',
-            content:
-              'Drivers shall be required to have a valid drivers license and Passport copy.',
-          },
-          {
-            label:
-              'How much is the Insurance limit on luxury car rental Dubai?',
-            content:
-              'Includes an overall Motor Vehicle Insurance. 3000-5000 AED for Excess Luxury Cars. 7000-10000 AED for Sports Cars',
-          },
-          {
-            label:
-              'What are the driving licenses that can be used in Arab countries ?',
-            content:
-              'Local driving license for UAE citizens. International driving licenses issued by the following countries: 1. Kingdom of Saudi Arabia, 2. Egypt, 3. Bahrain, 4. Jordan, 5. Kuwait, 6. Tunisia, 7. Sultanate of Oman, 8. Algeria, 9. Qatar, 10. Morocco, 11. Sudan, 12. Somalia, 13. Palestine, 14. Lebanon, 15. Libya, 16. Syria, 17 Yemen, 18. Iraq, 19. Djibouti, 20. Comoros, 21. Mauritania.',
-          },
-          {
-            label: 'Can anyone else drive the car i rent?',
-            content:
-              'The contract prescribes two drivers, but at the time of filling out the contract, you must provide a drivers license and passport',
-          },
-        ]"
-      />
-    </template>
+    <UAccordion
+      color="white"
+      variant="outline"
+      size="xl"
+      :items="[
+        {
+          label:
+            'What is the minimum age requirements to rent a car in Dubai ?',
+          content:
+            'Drivers under 25 must have a license for a minimum of three years. The same applies for the person(s) whose name(s) is/are mentioned as additional driver.',
+        },
+        {
+          label: 'What do you need for a luxury car rental in Dubai ?',
+          content:
+            'Drivers shall be required to have a valid drivers license and Passport copy.',
+        },
+        {
+          label: 'How much is the Insurance limit on luxury car rental Dubai?',
+          content:
+            'Includes an overall Motor Vehicle Insurance. 3000-5000 AED for Excess Luxury Cars. 7000-10000 AED for Sports Cars',
+        },
+        {
+          label:
+            'What are the driving licenses that can be used in Arab countries ?',
+          content:
+            'Local driving license for UAE citizens. International driving licenses issued by the following countries: 1. Kingdom of Saudi Arabia, 2. Egypt, 3. Bahrain, 4. Jordan, 5. Kuwait, 6. Tunisia, 7. Sultanate of Oman, 8. Algeria, 9. Qatar, 10. Morocco, 11. Sudan, 12. Somalia, 13. Palestine, 14. Lebanon, 15. Libya, 16. Syria, 17 Yemen, 18. Iraq, 19. Djibouti, 20. Comoros, 21. Mauritania.',
+        },
+        {
+          label: 'Can anyone else drive the car i rent?',
+          content:
+            'The contract prescribes two drivers, but at the time of filling out the contract, you must provide a drivers license and passport',
+        },
+      ]"
+    />
   </Section>
 </template>

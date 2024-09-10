@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="p-4 flex h-96 flex-col justify-between border-2 gap-4">
+  <div class="p-4 flex h-96 flex-col justify-between border-2 gap-4 w-full">
     <div class="flex h-2/3 justify-center items-center w-full">
       <NuxtImg
         :src="
