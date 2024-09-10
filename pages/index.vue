@@ -23,55 +23,85 @@ const nextSlide = () => {
   }
 };
 
-onMounted(() => {
-  const brands = fetch("https://api.autozoomrental.com/api/brands/");
-  const cars = fetch("https://api.autozoomrental.com/api/cars");
+onMounted(async () => {
+  try {
+    // Fetching brands
+    const brandsResponse = await fetch(
+      "https://api.autozoomrental.com/api/brands/"
+    );
+    const brands = await brandsResponse.json();
+    store.brands = brands.data;
 
-  brands
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res.data);
+    // Fetching cars
+    const carsResponse = await fetch(
+      "https://api.autozoomrental.com/api/cars/category"
+    );
+    const category = await carsResponse.json();
+    console.log(category.data);
 
-      store.brands = res.data;
-    });
-
-  cars
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res);
-      store.carsAll = res.data;
-      res.data.forEach((element) => {
-        if (element.category.name_en == "Luxury Cars") {
-          store.luxuryCars.push(element);
-        }
-      });
-      res.data.forEach((element) => {
-        if (element.category.name_en == "Sports Cars") {
-          store.sportCars.push(element);
-        }
-      });
-      res.data.forEach((element) => {
-        if (element.category.name_en == "Budget Cars") {
-          store.budgetCars.push(element);
-        }
-      });
-      res.data.forEach((element) => {
-        if (element.category.name_en == "SUV") {
-          store.suvCars.push(element);
-        }
-      });
-      res.data.forEach((element) => {
-        if (element.category.name_en.trim() == "Muscle") {
-          store.muscleCars.push(element);
-        }
-      });
-      res.data.forEach((element) => {
-        if (element.category.name_en == "American Brands") {
-          store.americanCars.push(element);
+    category.data.forEach((item) => {
+      item.cars?.forEach((element) => {
+        store.carsAll.push(element)
+        switch (element.category_id.trim()) {
+          case "b029538b-8146-44f2-9d21-9949ffda29de":
+            store.luxuryCars.push(element);
+            break;
+          case "ed1193e9-6002-45a7-b324-e65350e9ba6a":
+            store.sportCars.push(element);
+            break;
+          case "f4a1a0c4-03d4-4f56-9741-bab882b70a81":
+            store.budgetCars.push(element);
+            break;
+          case "45f4bded-3eeb-4f9c-8eee-f817b804b3ec":
+            store.suvCars.push(element);
+            break;
+          case "5ed40ab6-133d-4897-bf98-8f68b35dfdd9":
+            store.convertibleCars.push(element);
+            break;
+          case "9878a9b3-bbc3-4e33-a741-018197c7c60c":
+            store.muscleCars.push(element);
+            break;
+          case "11003b30-8002-4233-9d8b-005263b55cd6":
+            store.americanCars.push(element);
+            break;
         }
       });
     });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 });
+
+const titles = [
+  {
+    title: "BUDGET CARS",
+    item: store.budgetCars,
+  },
+  {
+    title: "SPORT CARS",
+    item: store.sportCars,
+  },
+  {
+    title: "LUXURY CARS",
+    item: store.luxuryCars,
+  },
+  {
+    title: "MUSCLE CARS",
+    item: store.muscleCars,
+  },
+  {
+    title: "CONVERTIBLE CARS",
+    item: store.convertibleCars,
+  },
+  {
+    title: "SUV CARS",
+    item: store.suvCars,
+  },
+  {
+    title: "AMERICAN BRANDS",
+    item: store.americanCars,
+  },
+];
 </script>
 
 <template>
@@ -105,9 +135,10 @@ onMounted(() => {
             <img src="../assets/3.png" />
           </SwiperSlide>
         </Swiper>
-
-        <button class="swiper-button-prev" @click="prevSlide"></button>
-        <button class="swiper-button-next" @click="nextSlide"></button>
+        <div class="absolute bottom-4 right-4 flex gap-4 z-10">
+          <button @click="prevSlide">prev</button>
+          <button @click="nextSlide">next</button>
+        </div>
       </div>
     </div>
   </section>
@@ -129,43 +160,8 @@ onMounted(() => {
     </Swiper>
   </Section>
   <Section>
-    <div class="budgetCars">
-      <div class="flex gap-4 justify-between w-full items-center mb-6">
-        <h1 class="text-4xl">BUDGET CARS</h1>
-        <NuxtLink to="#">see all</NuxtLink>
-      </div>
-      <Swiper :slides-per-view="3.5" :space-between="20">
-        <SwiperSlide v-for="item in store.budgetCars" :key="item.id">
-          <ChangeCarsCard
-            :img="
-              item.car_images.find((image) => image.is_main)?.image.src ||
-              item.car_images[0].image.src
-            "
-            :price="item.price_in_aed + ' aed/' + item.price_in_usd + ' usd'"
-            :name="item.brand.title + ' ' + item.model.name"
-            :perday="item.limitperday"
-          />
-        </SwiperSlide>
-      </Swiper>
-    </div>
-    <div class="budgetCars">
-      <div class="flex gap-4 justify-between w-full items-center mb-6">
-        <h1 class="text-4xl">BUDGET CARS</h1>
-        <NuxtLink to="#">see all</NuxtLink>
-      </div>
-      <Swiper :slides-per-view="3.5" :space-between="20">
-        <SwiperSlide v-for="item in store.budgetCars" :key="item.id">
-          <ChangeCarsCard
-            :img="
-              item.car_images.find((image) => image.is_main)?.image.src ||
-              item.car_images[0].image.src
-            "
-            :price="item.price_in_aed + ' aed/' + item.price_in_usd + ' usd'"
-            :name="item.brand.title + ' ' + item.model.name"
-            :perday="item.limitperday"
-          />
-        </SwiperSlide>
-      </Swiper>
+    <div v-for="element in titles">
+      <ChangeCarsBox :label="element.title" :item="element.item" />
     </div>
   </Section>
 </template>
