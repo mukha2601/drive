@@ -41,7 +41,7 @@ onMounted(async () => {
 
     category.data.forEach((item) => {
       item.cars?.forEach((element) => {
-        store.carsAll.push(element)
+        store.carsAll.push(element);
         switch (element.category_id.trim()) {
           case "b029538b-8146-44f2-9d21-9949ffda29de":
             store.luxuryCars.push(element);
@@ -164,4 +164,5 @@ const titles = [
       <ChangeCarsBox :label="element.title" :item="element.item" />
     </div>
   </Section>
+  <Service/>
 </template>
