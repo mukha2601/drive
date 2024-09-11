@@ -23,11 +23,11 @@ onMounted(async () => {
       "https://api.autozoomrental.com/api/cars/category"
     );
     const category = await carsResponse.json();
-    console.log(category.data);
 
     category.data.forEach((item) => {
       item.cars?.forEach((element) => {
         store.carsAll.push(element);
+
         switch (element.category_id.trim()) {
           case "b029538b-8146-44f2-9d21-9949ffda29de":
             store.luxuryCars.push(element);
@@ -57,6 +57,7 @@ onMounted(async () => {
     console.error("Error fetching data:", error);
   }
 });
+console.log(store.carsAll);
 </script>
 
 <style>

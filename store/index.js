@@ -13,6 +13,18 @@ export const useStore = defineStore("home", {
       suvCars: [],
       americanCars: [],
       filter: [],
+      category: [],
+      carType: null,
+      carBrand: null,
+      carModel: null,
     };
+  },
+  actions: {
+    // Tanlangan category_id bo'yicha mashinalarni filterga saqlash
+    filterCarsByCategory(categoryId) {
+      this.filter = this.carsAll.filter(
+        (car) => car.category_id === categoryId
+      );
+    },
   },
 });
