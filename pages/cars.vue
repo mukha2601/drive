@@ -3,6 +3,7 @@ import { useStore } from "@/store/index";
 const store = useStore();
 
 onMounted(async () => {
+  store.filter = []
   try {
     // Fetching cars
     const carsResponse = await fetch(
