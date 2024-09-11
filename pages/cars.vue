@@ -12,7 +12,7 @@ onMounted(async () => {
     console.log(category.data);
     category.data?.forEach((element) => {
       element.cars?.forEach((item) => {
-        store.carsAll.push(item);
+        store.filter.push(item);
       });
     });
   } catch (error) {
