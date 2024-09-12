@@ -31,7 +31,7 @@ function resetPage() {
 <template>
   <div class="flex flex-col">
     <nav
-      class="w-full border-2 border-t-0 p-4 grid grid-cols-4 gap-4 sticky top-[60px] backdrop-blur-md"
+      class="w-full border-2 border-t-0 p-4 grid grid-cols-4 gap-4 sticky top-[60px] bg-[#e3e4e6] shadow-xl z-20"
     >
       <!-- <label for="carType">Car Type</label> -->
       <select
@@ -65,6 +65,20 @@ function resetPage() {
           {{ car.brand.title }}
         </option>
       </select>
+
+      <!-- <USelect
+        v-model="country"
+        color="black"
+        placeholder="Car Type"
+        variant="outline"
+        :options="countries"
+        :ui="{
+          wrapper:'bg-transparent',
+          rounded: 'rounded-none',
+          padding: { sm: 'py-2' },
+          variant: { none: 'bg-transparent focus:ring-0 focus:shadow-none' },
+        }"
+      /> -->
 
       <button
         @click="resetPage(), console.log('clicked')"

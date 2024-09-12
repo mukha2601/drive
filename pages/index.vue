@@ -61,7 +61,7 @@ const titles = [
 </script>
 
 <template>
-  <section id="hero" class="w-full border-2 border-t-0">
+  <section id="hero" class="w-full border-2 border-t-0 shadow-2xl">
     <div class="grid grid-cols-3 h-full grid-rows-1">
       <div
         class="left w-full border-e-2 h-full flex flex-col justify-between gap-6 p-4"
