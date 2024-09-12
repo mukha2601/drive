@@ -22,78 +22,56 @@ onMounted(async () => {
   }
 });
 
-function getCarTyp() {
-  return store.category.map((item) => ({
-    label: item.name_en,
-    value: item.id,
-  }));
+function resetPage() {
+  // Sahifani yangilash
+  window.location.reload();
 }
-
-const selectedCategoryId = ref("");
-
-const filterCars = () => {
-  if (selectedCategoryId.value) {
-    store.filterCarsByCategory(selectedCategoryId.value);
-  }
-};
-
-// function getCarBrand(carType) {
-//   // Tanlangan carType ga mos bo'lgan kategoriyani filtrlaymiz
-//   const selectedCategory = store.category.find((item) => item.id === carType);
-
-//   // Agar kategoriyani topsak, uning ichidagi mashinalarni qaytaramiz
-//   if (selectedCategory) {
-//     return selectedCategory.cars.map((el) => ({
-//       label: el.brand.title,
-//       value: el.brand.id,
-//     }));
-//   }
-
-//   // Agar carType mavjud bo'lmasa, bo'sh massiv qaytaramiz
-//   return [];
-// }
-
-// function getCarModel() {}
 </script>
 
 <template>
   <div class="flex flex-col">
-    <nav class="w-full border-2 border-t-0 p-4 grid grid-cols-4 gap-4">
-      <select v-model="selectedCategoryId" @change="filterCars" class="bg-white text-black">
-        <option disabled value="">Car type</option>
+    <nav
+      class="w-full border-2 border-t-0 p-4 grid grid-cols-4 gap-4 sticky top-[60px] backdrop-blur-md"
+    >
+      <!-- <label for="carType">Car Type</label> -->
+      <select
+        id="carType"
+        v-model="store.carType"
+        @change="store.getCarType(store.carType)"
+        class="bg-white text-black"
+      >
         <option
-          v-for="item in store.category"
-          :key="item.id"
+          v-for="(item, index) in store.category"
+          :key="index"
           :value="item.id"
         >
           {{ item.name_en }}
         </option>
       </select>
-      <!-- <USelect
-        color="black"
-        placeholder="Car type"
-        v-model="selectedCategoryId"
-        :options="carOptions"
-        @change="filterCars"
-      /> -->
-      <!-- <USelect
-        color="black"
-        placeholder="Brands"
-        v-model="store.carBrand"
-        :options="getCarBrand(store.carType)"
-      />
-      <USelect
-        v-if="store.carBrand"
-        color="black"
-        placeholder="Models"
-        v-model="store.carBrand"
-        :options="getCarModel(store.carBrand)"
-      /> -->
 
-      <div>
-        <button>reset</button>
-        <button>filter</button>
-      </div>
+      <select
+        v-if="store.carType"
+        v-model="store.carBrand"
+        class="bg-white text-black"
+        @change="store.getCarBrand(store.carBrand)"
+      >
+        <option value="" disabled>Car Type</option>
+        <option
+          v-for="car in store.category.find((item) => item.id == store.carType)
+            ?.cars"
+          :key="car.brand.id"
+          :value="car.brand.id"
+        >
+          {{ car.brand.title }}
+        </option>
+      </select>
+
+      <button
+        @click="resetPage(), console.log('clicked')"
+        class="w-full border-2"
+      >
+        reset
+      </button>
     </nav>
     <main class="w-full border-2 border-t-0 grid grid-cols-4 p-4 gap-4">
       <div v-for="item in store.filter">
