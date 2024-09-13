@@ -23,6 +23,15 @@ onMounted(async () => {
       "https://api.autozoomrental.com/api/cars/category"
     );
     const category = await carsResponse.json();
+    console.log(category);
+    
+    // Fetching cars
+    const carResponse = await fetch(
+      "https://api.autozoomrental.com/api/cars"
+    );
+    const car = await carResponse.json();
+    console.log(car);
+    
 
     category.data.forEach((item) => {
       item.cars?.forEach((element) => {
@@ -57,7 +66,6 @@ onMounted(async () => {
     console.error("Error fetching data:", error);
   }
 });
-console.log(store.carsAll);
 </script>
 
 <style>

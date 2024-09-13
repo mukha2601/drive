@@ -1,10 +1,10 @@
 <script setup>
-const imageUrl = "https://api.autozoomrental.com/api/uploads/images/";
+// const imageUrl = "https://api.autozoomrental.com/api/uploads/images/";
 
 const props = defineProps({
   item: {
     type: Object,
-    required: true, 
+    required: true,
   },
 });
 </script>
@@ -17,7 +17,7 @@ const props = defineProps({
     <div class="flex h-2/3 justify-center items-center w-full">
       <NuxtImg
         :src="
-          imageUrl +
+          'https://api.autozoomrental.com/api/uploads/images/' +
           (item.car_images.find((image) => image.is_main)?.image.src ||
             item.car_images[0].image.src)
         "

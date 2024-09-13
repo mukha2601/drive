@@ -8,8 +8,6 @@ const store = useStore();
 let swiper = null;
 
 const onSwiper = (swiperInstance) => {
-  console.log(swiperInstance);
-  
   swiper = swiperInstance;
 };
 
