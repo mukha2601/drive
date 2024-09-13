@@ -76,4 +76,13 @@ body {
   font-weight: 700;
   font-style: normal;
 }
+
+::-webkit-scrollbar {
+  width: 0.4rem;
+  background-color: rgb(75, 75, 75);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(167, 167, 167);
+}
 </style>

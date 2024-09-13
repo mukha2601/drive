@@ -16,7 +16,6 @@ export const useStore = defineStore("home", {
       category: [],
       carType: null,
       carBrand: null,
-      carModel: null,
     };
   },
   actions: {

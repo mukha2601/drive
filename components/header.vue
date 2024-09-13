@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full flex justify-between border-2 h-[60px] items-center sticky top-0 z-10 shadow-xl bg-[#e3e4e6]"
+    class="w-full flex justify-between border-2 h-[60px] items-center sticky top-0 z-30 shadow-xl bg-[#e3e4e6]"
   >
     <NuxtLink to="/">
       <NuxtImg src="/logo.png" class="w-14 h-14 border-e-2 inset-0 p-2" />
