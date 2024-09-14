@@ -9,7 +9,7 @@
       <NuxtLink class="hover:text-orange-500" to="/cars">CARS</NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/">BRAND</NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/service">SERVICES</NuxtLink>
-      <NuxtLink class="hover:text-orange-500" to="/">ABOUT US</NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/about">ABOUT US</NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/contacts">CONTACTS</NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/blog">BLOG</NuxtLink>
     </div>

@@ -2,7 +2,7 @@
 import { useStore } from "@/store/index";
 const store = useStore();
 
-onMounted(async () => {
+async function fetchdata() {
   store.filter = [];
   try {
     // Fetching cars
@@ -20,13 +20,18 @@ onMounted(async () => {
   } catch (error) {
     console.log(error);
   }
+}
+
+onMounted(() => {
+  fetchdata();
 });
 
 function resetPage() {
-  store.carType = null
-  store.carBrand = null
+  store.carType = null;
+  store.carBrand = null;
   // Sahifani yangilash
   // window.location.reload();
+  fetchdata();
 }
 </script>
 
@@ -70,10 +75,10 @@ function resetPage() {
               label: car.brand.title,
             })) ||
           store.carsAll.map((car) => ({
-              key: car.brand.id,
-              value: car.brand.id,
-              label: car.brand.title,
-            }))
+            key: car.brand.id,
+            value: car.brand.id,
+            label: car.brand.title,
+          }))
         "
         @change="store.getCarBrand(store.carBrand)"
         :ui="{
