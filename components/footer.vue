@@ -66,7 +66,7 @@
     </div>
     <div class="flex justify-between mt-4 pt-2 border-t-2 text-sm">
       <p>© 2024 Auto Zoom Car Rental. United Arab Emirates.</p>
-      <p>Terms and Conditions</p>
+      <NuxtLink to="/terms-and-conditions">Terms and Conditions</NuxtLink>
     </div>
   </div>
 </template>
