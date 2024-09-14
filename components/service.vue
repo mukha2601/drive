@@ -11,7 +11,9 @@
           Experience the thrill of a dune buggy tour in Dubai with us. We offer
           free hotel pick-up & drop-off service. Book now!
         </p>
-        <Button label="learn more" />
+        <NuxtLink to="/service/sport-car-rent" >
+          <Button label="learn more" />
+        </NuxtLink>
       </div>
       <div class="flex flex-col justify-between gap-4 p-4 border-2 w-96">
         <NuxtImg
