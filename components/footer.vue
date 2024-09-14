@@ -35,7 +35,7 @@
         </li>
       </ul>
       <ul class="flex flex-col justify-between text-sm">
-        <li><NuxtLink to="/cars" class="text-xl font-bold">Cars</NuxtLink></li>
+        <li ><NuxtLink to="/cars" class="text-xl font-bold">Cars</NuxtLink></li>
         <li><NuxtLink to="/cars">SUV</NuxtLink></li>
         <li><NuxtLink to="/cars">Sport Cars</NuxtLink></li>
         <li><NuxtLink to="/cars">Luxury Cars</NuxtLink></li>

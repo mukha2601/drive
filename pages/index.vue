@@ -6,6 +6,8 @@ import "swiper/swiper-bundle.css";
 import { useStore } from "@/store";
 const store = useStore();
 let swiper = null;
+const config = useRuntimeConfig();
+const imgUrl = config.public.VITE_IMGURL;
 
 const onSwiper = (swiperInstance) => {
   swiper = swiperInstance;
@@ -92,7 +94,7 @@ const titles = [
             <NuxtImg
               class="w-[500px]"
               :src="
-                'https://api.autozoomrental.com/api/uploads/images/' +
+                imgUrl +
                   item.car_images.find((image) => image.is_main)?.image.src ||
                 item.car_images[0].image.src
               "
