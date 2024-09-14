@@ -14,7 +14,7 @@
         </li>
         <li><Button label="GET BEST OFFER" /></li>
         <li class="flex flex-col">
-          <NuxtLink to="/cars" class="text-xl font-bold">Follow Us</NuxtLink>
+          <h1 class="text-xl font-bold">Follow Us</h1>
           <div class="flex gap-4">
             <UButton
               icon="ri:instagram-fill"
@@ -35,7 +35,7 @@
         </li>
       </ul>
       <ul class="flex flex-col justify-between text-sm">
-        <li ><NuxtLink to="/cars" class="text-xl font-bold">Cars</NuxtLink></li>
+        <li><NuxtLink to="/cars" class="text-xl font-bold">Cars</NuxtLink></li>
         <li><NuxtLink to="/cars">SUV</NuxtLink></li>
         <li><NuxtLink to="/cars">Sport Cars</NuxtLink></li>
         <li><NuxtLink to="/cars">Luxury Cars</NuxtLink></li>
@@ -45,21 +45,21 @@
         <li><NuxtLink to="/cars">Muscle</NuxtLink></li>
       </ul>
       <ul class="flex flex-col justify-between text-sm">
-        <li><NuxtLink to="/cars" class="text-xl font-bold">Blog</NuxtLink></li>
+        <li><NuxtLink to="/blog" class="text-xl font-bold">Blog</NuxtLink></li>
         <li>
-          <NuxtLink to="/cars" class="text-xl font-bold">Service</NuxtLink>
+          <NuxtLink to="/service" class="text-xl font-bold">Service</NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/cars" class="text-xl font-bold">Contacts</NuxtLink>
+          <NuxtLink to="/contacts" class="text-xl font-bold">Contacts</NuxtLink>
           <p class="text-[12px] max-w-80">
             Elite 3 Sports City, Dubai 26W8 24J, United Arab Emirates +971 52
             7030189 Working hours: 24/7
           </p>
         </li>
         <li class="flex flex-col gap-2">
-          <NuxtLink to="/cars" class="text-xl font-bold">About Us</NuxtLink>
-          <NuxtLink to="/cars" class="text-sm font-bold">Our Team</NuxtLink>
-          <NuxtLink to="/cars" class="text-sm font-bold">FAQ</NuxtLink>
+          <NuxtLink to="/about" class="text-xl font-bold">About Us</NuxtLink>
+          <NuxtLink to="/" class="text-sm font-bold">Our Team</NuxtLink>
+          <NuxtLink to="/faq" class="text-sm font-bold">FAQ</NuxtLink>
         </li>
       </ul>
       <ul></ul>

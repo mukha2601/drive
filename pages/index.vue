@@ -12,17 +12,12 @@ const imgUrl = config.public.VITE_IMGURL;
 const onSwiper = (swiperInstance) => {
   swiper = swiperInstance;
 };
-
 const prevSlide = () => {
-  console.log("Prev button clicked");
-  console.log(swiper);
   if (swiper) {
     swiper.slidePrev();
   }
 };
-
 const nextSlide = () => {
-  console.log("Next button clicked");
   if (swiper) {
     swiper.slideNext();
   }
@@ -64,9 +59,9 @@ const titles = [
   <section id="hero" class="w-full border-2 border-t-0 shadow-2xl">
     <div class="grid grid-cols-3 h-full grid-rows-1">
       <div
-        class="left w-full border-e-2 h-full flex flex-col justify-between gap-6 p-4"
+        class="left w-full border-e-2 h-full flex flex-col justify-between gap-6 p-6"
       >
-        <h1 class="text-[62px]">TOP LUXURY CAR RENTAL DUBAI</h1>
+        <h1 class="text-[58px]">TOP LUXURY CAR RENTAL DUBAI</h1>
         <p class="text-[20px] font-thin">
           Best sports car & supercar rental Dubai, Exclusive offers on luxury
           car rental Dubai Cheap price
@@ -184,7 +179,7 @@ const titles = [
           allowfullscreen
         ></iframe>
       </div>
-      <div class="w-1/2 flex flex-col gap-4">
+      <div class="w-1/2 flex flex-col gap-4 justify-around">
         <h1 class="text-4xl">SPORTS CAR RENTAL DUBAI</h1>
         <p>
           Auto Zoom L L C a Car is a Top Luxury Car Rental Dubai based company,
@@ -195,44 +190,11 @@ const titles = [
           Porsche, and Range Rover, to name a few. Rent a car with the best car
           rental company in Dubai.
         </p>
-        <button>all cars</button>
+        <NuxtLink to="/cars" >
+          <Button label="All Cars" />
+        </NuxtLink>
       </div>
     </div>
   </Section>
-  <Section :label="'faq'">
-    <UAccordion
-      color="white"
-      variant="outline"
-      size="xl"
-      :items="[
-        {
-          label:
-            'What is the minimum age requirements to rent a car in Dubai ?',
-          content:
-            'Drivers under 25 must have a license for a minimum of three years. The same applies for the person(s) whose name(s) is/are mentioned as additional driver.',
-        },
-        {
-          label: 'What do you need for a luxury car rental in Dubai ?',
-          content:
-            'Drivers shall be required to have a valid drivers license and Passport copy.',
-        },
-        {
-          label: 'How much is the Insurance limit on luxury car rental Dubai?',
-          content:
-            'Includes an overall Motor Vehicle Insurance. 3000-5000 AED for Excess Luxury Cars. 7000-10000 AED for Sports Cars',
-        },
-        {
-          label:
-            'What are the driving licenses that can be used in Arab countries ?',
-          content:
-            'Local driving license for UAE citizens. International driving licenses issued by the following countries: 1. Kingdom of Saudi Arabia, 2. Egypt, 3. Bahrain, 4. Jordan, 5. Kuwait, 6. Tunisia, 7. Sultanate of Oman, 8. Algeria, 9. Qatar, 10. Morocco, 11. Sudan, 12. Somalia, 13. Palestine, 14. Lebanon, 15. Libya, 16. Syria, 17 Yemen, 18. Iraq, 19. Djibouti, 20. Comoros, 21. Mauritania.',
-        },
-        {
-          label: 'Can anyone else drive the car i rent?',
-          content:
-            'The contract prescribes two drivers, but at the time of filling out the contract, you must provide a drivers license and passport',
-        },
-      ]"
-    />
-  </Section>
+  <Faq/>
 </template>

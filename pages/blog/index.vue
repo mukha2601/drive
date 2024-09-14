@@ -13,10 +13,6 @@
 </template>
 
 <script setup>
-// import img1 from "@/assets/blog (1).jpg";
-// import img2 from "@/assets/blog (2).jpg";
-// import img3 from "@/assets/blog (3).jpg";
-
 console.log(typeof img1);
 
 const items = [

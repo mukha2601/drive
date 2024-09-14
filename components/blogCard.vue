@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 flex border-2 gap-4">
+  <div class="p-4 flex border-2 gap-4">
     <NuxtImg :src="image" class="max-w-[300px] object-cover" />
     <div class="flex flex-col justify-between gap-4 w-full">
       <h1>{{ title }}</h1>
