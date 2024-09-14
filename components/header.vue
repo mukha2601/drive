@@ -11,7 +11,7 @@
       <NuxtLink class="hover:text-orange-500" to="/service">SERVICES</NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/">ABOUT US</NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/">CONTACTS</NuxtLink>
-      <NuxtLink class="hover:text-orange-500" to="/">BLOG</NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/blog">BLOG</NuxtLink>
     </div>
 
     <div class="flex h-full border-s-2">
