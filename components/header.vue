@@ -7,7 +7,7 @@
     </NuxtLink>
     <div class="nav h-full border-x-2 flex gap-4 px-4 items-center">
       <NuxtLink class="hover:text-orange-500" to="/cars">CARS</NuxtLink>
-      <NuxtLink class="hover:text-orange-500" to="/">BRAND</NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="#brands">BRAND</NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/service">SERVICES</NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/">ABOUT US</NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/">CONTACTS</NuxtLink>
