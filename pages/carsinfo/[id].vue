@@ -1,27 +1,33 @@
 <script setup>
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from "swiper/vue";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useStore } from "@/store/index";
+import { useRoute } from "vue-router";
+import { useRuntimeConfig } from "#app";
+
 const store = useStore();
 const route = useRoute();
+const config = useRuntimeConfig();
+const imgUrl = config.public.VITE_IMGURL;
 
-const car = store.carsAll.find((item) => item.id === route.params.id);
-console.log(car);
+const carId = route.params.id; // Get carId from route params
+store.selectedCarId = carId;
 
+const fetchCar = async () => {
+  // Wait for store data to be available
+  store.selectedCarItem = store.carsAll.find(
+    (item) => item.id === store.selectedCarId
+  );
+};
 
-// Import Swiper styles
+onMounted(fetchCar);
+
 import "swiper/css";
-
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-// import required modules
 const modules = [FreeMode, Navigation, Thumbs];
-
 const thumbsSwiper = ref(null);
-
 const setThumbsSwiper = (swiper) => {
   thumbsSwiper.value = swiper;
 };
@@ -30,7 +36,10 @@ const setThumbsSwiper = (swiper) => {
 <template>
   <Section>
     <div class="grid grid-cols-2">
-      <div class="max-w-[500px]">
+      <div
+        class="max-w-[500px]"
+        v-if="store.selectedCarItem && store.selectedCarItem.car_images"
+      >
         <swiper
           :style="{
             '--swiper-navigation-color': '#fff',
@@ -44,35 +53,13 @@ const setThumbsSwiper = (swiper) => {
           class="mySwiper2"
         >
           <swiper-slide
-            ><img
-              src="https://swiperjs.com/demos/images/nature-1.jpg" /></swiper-slide
-          ><swiper-slide
-            ><img
-              src="https://swiperjs.com/demos/images/nature-2.jpg" /></swiper-slide
-          ><swiper-slide
-            ><img
-              src="https://swiperjs.com/demos/images/nature-3.jpg" /></swiper-slide
-          ><swiper-slide
-            ><img
-              src="https://swiperjs.com/demos/images/nature-4.jpg" /></swiper-slide
-          ><swiper-slide
-            ><img
-              src="https://swiperjs.com/demos/images/nature-5.jpg" /></swiper-slide
-          ><swiper-slide
-            ><img
-              src="https://swiperjs.com/demos/images/nature-6.jpg" /></swiper-slide
-          ><swiper-slide
-            ><img
-              src="https://swiperjs.com/demos/images/nature-7.jpg" /></swiper-slide
-          ><swiper-slide
-            ><img
-              src="https://swiperjs.com/demos/images/nature-8.jpg" /></swiper-slide
-          ><swiper-slide
-            ><img
-              src="https://swiperjs.com/demos/images/nature-9.jpg" /></swiper-slide
-          ><swiper-slide
-            ><img src="https://swiperjs.com/demos/images/nature-10.jpg"
-          /></swiper-slide>
+            v-for="(image, index) in store.selectedCarItem.car_images.filter(
+              (item) => item.is_main === false
+            )"
+            :key="index"
+          >
+            <NuxtImg :src="imgUrl + image.image.src" />
+          </swiper-slide>
         </swiper>
         <swiper
           @swiper="setThumbsSwiper"
@@ -84,23 +71,18 @@ const setThumbsSwiper = (swiper) => {
           :modules="modules"
           class="mySwiper mt-3"
         >
-            <!-- <swiper-slide
-                v-for="image in car.car_images"
-                :key="image.car_id"
-            >
-                <NuxtImg :src="image.image.src" />
-            </swiper-slide> -->
+          <swiper-slide
+            v-for="(image, index) in store.selectedCarItem.car_images.filter(
+              (item) => item.is_main === false
+            )"
+            :key="index"
+          >
+            <NuxtImg :src="imgUrl + image.image.src" />
+          </swiper-slide>
         </swiper>
       </div>
       <div class="w-full">
-        <!-- <p>
-          <span class="text-orange-500 group-hover:text-white">price:</span>
-          {{ item.price_in_aed + " aed / " + item.price_in_usd + " usd" }}
-        </p>
-        <p>
-          <span class="text-orange-500 group-hover:text-white">per day:</span>
-          {{ item.limitperday }}
-        </p> -->
+        <!-- Additional content can go here -->
       </div>
     </div>
   </Section>

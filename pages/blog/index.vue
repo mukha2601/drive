@@ -13,7 +13,6 @@
 </template>
 
 <script setup>
-console.log(typeof img1);
 
 const items = [
   {

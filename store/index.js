@@ -14,6 +14,8 @@ export const useStore = defineStore("home", {
       americanCars: [],
       filter: [],
       category: [],
+      selectedCarId: "",
+      selectedCarItem: [],
       carType: null,
       carBrand: null,
     };
@@ -30,3 +32,5 @@ export const useStore = defineStore("home", {
     },
   },
 });
+
+

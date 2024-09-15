@@ -11,7 +11,7 @@
           Experience the thrill of a dune buggy tour in Dubai with us. We offer
           free hotel pick-up & drop-off service. Book now!
         </p>
-        <NuxtLink to="/service/sport-car-rent" >
+        <NuxtLink to="/service/sport-car-rent">
           <Button label="learn more" />
         </NuxtLink>
       </div>
@@ -25,7 +25,9 @@
           Professional car photoshoot as an additional type of service at Auto
           Zoom Car Rental
         </p>
-        <Button label="learn more" />
+        <NuxtLink to="/service/photoshoot">
+          <Button label="learn more" />
+        </NuxtLink>
       </div>
     </div>
   </Section>
