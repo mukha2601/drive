@@ -10,16 +10,10 @@ const config = useRuntimeConfig();
 const imgUrl = config.public.VITE_IMGURL;
 
 const carId = route.params.id; // Get carId from route params
-store.selectedCarId = carId;
 
-const fetchCar = async () => {
-  // Wait for store data to be available
-  store.selectedCarItem = store.carsAll.find(
-    (item) => item.id === store.selectedCarId
-  );
-};
-
-onMounted(fetchCar);
+const selectedCarItem = computed(() => {
+  return store.carsAll.find((item) => item.id === carId);
+});
 
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -38,7 +32,7 @@ const setThumbsSwiper = (swiper) => {
     <div class="grid grid-cols-2">
       <div
         class="max-w-[500px]"
-        v-if="store.selectedCarItem && store.selectedCarItem.car_images"
+        v-if="selectedCarItem && selectedCarItem.car_images"
       >
         <swiper
           :style="{
@@ -53,7 +47,7 @@ const setThumbsSwiper = (swiper) => {
           class="mySwiper2"
         >
           <swiper-slide
-            v-for="(image, index) in store.selectedCarItem.car_images.filter(
+            v-for="(image, index) in selectedCarItem.car_images.filter(
               (item) => item.is_main === false
             )"
             :key="index"
@@ -72,7 +66,7 @@ const setThumbsSwiper = (swiper) => {
           class="mySwiper mt-3"
         >
           <swiper-slide
-            v-for="(image, index) in store.selectedCarItem.car_images.filter(
+            v-for="(image, index) in selectedCarItem.car_images.filter(
               (item) => item.is_main === false
             )"
             :key="index"
@@ -81,8 +75,26 @@ const setThumbsSwiper = (swiper) => {
           </swiper-slide>
         </swiper>
       </div>
-      <div class="w-full">
-        <!-- Additional content can go here -->
+      <div class="w-full border-2">
+        <h1 class="text-2xl">cobalt</h1>
+        <ul class="grid grid-cols-2">
+          <li>
+            <span class="text-orange-500 group-hover:text-white">price:</span>
+            {{ 500 + " aed / " + 300 + " usd" }}
+          </li>
+          <li>
+            <span class="text-orange-500 group-hover:text-white">per day:</span>
+            {{ 500 + " aed / " + 300 + " usd" }}
+          </li>
+          <li>
+            <span class="text-orange-500 group-hover:text-white">Deposit:</span>
+            {{ 500 + " aed / " + 300 + " usd" }}
+          </li>
+          <li>
+            <span class="text-orange-500 group-hover:text-white">Premium protection:</span>
+            {{ 500 + " aed / " + 300 + " usd" }}
+          </li>
+        </ul>
       </div>
     </div>
   </Section>
