@@ -17,7 +17,6 @@ function resetPage() {
     >
       <USelect
         v-model="store.carType"
-        color="black"
         placeholder="Car Type"
         variant="outline"
         :options="
@@ -32,12 +31,12 @@ function resetPage() {
           rounded: 'rounded-none',
           padding: { sm: 'py-2' },
           variant: { outline: 'bg-gray-300 ' },
+          color: 'black',
         }"
       />
 
       <USelect
         v-model="store.carBrand"
-        color="black"
         placeholder="Car Brand"
         variant="outline"
         :options="
@@ -59,15 +58,11 @@ function resetPage() {
           rounded: 'rounded-none',
           padding: { sm: 'py-2' },
           variant: { outline: 'bg-gray-300 ' },
+          color: 'black',
         }"
       />
 
-      <button
-        @click="resetPage(), console.log('clicked')"
-        class="w-full border-2"
-      >
-        reset
-      </button>
+      <button @click="resetPage()" class="w-full border-2">reset</button>
     </nav>
     <main class="w-full border-2 border-t-0 grid grid-cols-4 p-4 gap-4">
       <div v-for="item in store.filter">

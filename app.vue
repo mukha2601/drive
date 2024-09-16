@@ -24,14 +24,10 @@ onMounted(async () => {
     );
     const category = await carsResponse.json();
     store.category = category.data;
-    
-    // Fetching cars
-    const carResponse = await fetch(
-      "https://api.autozoomrental.com/api/cars"
-    );
-    const car = await carResponse.json();
-    console.log(car);
-    
+
+    // // Fetching cars
+    // const carResponse = await fetch("https://api.autozoomrental.com/api/cars");
+    // const car = await carResponse.json();
 
     category.data.forEach((item) => {
       item.cars?.forEach((element) => {

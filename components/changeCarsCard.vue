@@ -1,17 +1,18 @@
 <script setup>
-// const imageUrl = "https://api.autozoomrental.com/api/uploads/images/";
-
 const props = defineProps({
   item: {
     type: Object,
     required: true,
+  },
+  route: {
+    type: String,
   },
 });
 </script>
 
 <template>
   <NuxtLink
-    :to="`carsinfo/${item.id}`"
+    :to="`/carsinfo/${item.id}`"
     class="p-4 flex h-96 flex-col justify-between border-2 gap-4 w-full hover:bg-orange-500 hover:rounded-xl group"
   >
     <div class="flex h-2/3 justify-center items-center w-full">

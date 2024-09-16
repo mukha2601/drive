@@ -2,8 +2,16 @@
   <div
     class="w-full flex justify-between border-2 h-[60px] items-center sticky top-0 z-30 shadow-xl bg-[#e3e4e6]"
   >
-    <NuxtLink to="/">
-      <NuxtImg src="/logo.png" class="w-14 h-14 border-e-2 inset-0 p-2" />
+    <NuxtLink to="/" class="flex gap-4 items-center">
+      <div
+        class="bg-orange-500 h-14 px-3 inset-0 flex justify-center items-center border-e-2"
+      >
+        <UIcon
+          name="arcticons:dsdrive"
+          class="w-8 h-8 text-white font-bolder"
+          />
+          <p class="text-2xl text-white">Drive</p>
+      </div>
     </NuxtLink>
     <div class="nav h-full border-x-2 flex gap-4 px-4 items-center">
       <NuxtLink class="hover:text-orange-500" to="/cars">CARS</NuxtLink>

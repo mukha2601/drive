@@ -8,6 +8,10 @@ const store = useStore();
 let swiper = null;
 const config = useRuntimeConfig();
 const imgUrl = config.public.VITE_IMGURL;
+const category = computed(() => store.category);
+const loading = computed(() => !store.category || store.category.length === 0);
+console.log(category);
+
 
 const onSwiper = (swiperInstance) => {
   swiper = swiperInstance;
@@ -23,36 +27,36 @@ const nextSlide = () => {
   }
 };
 
-const titles = [
-  {
-    title: "BUDGET CARS",
-    item: store.budgetCars,
-  },
-  {
-    title: "SPORT CARS",
-    item: store.sportCars,
-  },
-  {
-    title: "LUXURY CARS",
-    item: store.luxuryCars,
-  },
-  {
-    title: "MUSCLE CARS",
-    item: store.muscleCars,
-  },
-  {
-    title: "CONVERTIBLE CARS",
-    item: store.convertibleCars,
-  },
-  {
-    title: "SUV CARS",
-    item: store.suvCars,
-  },
-  {
-    title: "AMERICAN BRANDS",
-    item: store.americanCars,
-  },
-];
+// const titles = [
+//   {
+//     title: "BUDGET CARS",
+//     item: store.budgetCars,
+//   },
+//   {
+//     title: "SPORT CARS",
+//     item: store.sportCars,
+//   },
+//   {
+//     title: "LUXURY CARS",
+//     item: store.luxuryCars,
+//   },
+//   {
+//     title: "MUSCLE CARS",
+//     item: store.muscleCars,
+//   },
+//   {
+//     title: "CONVERTIBLE CARS",
+//     item: store.convertibleCars,
+//   },
+//   {
+//     title: "SUV CARS",
+//     item: store.suvCars,
+//   },
+//   {
+//     title: "AMERICAN BRANDS",
+//     item: store.americanCars,
+//   },
+// ];
 </script>
 
 <template>
@@ -70,7 +74,7 @@ const titles = [
       </div>
       <div class="right col-span-2 h-full p-4 relative">
         <div
-          class="circle w-96 h-96 bg-orange-500 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+          class="w-80 h-full bg-orange-500 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         ></div>
         <Swiper
           :modules="modules"
@@ -121,8 +125,11 @@ const titles = [
     </Swiper>
   </Section>
   <Section>
-    <div v-for="element in titles">
-      <ChangeCarsBox :label="element.title" :item="element.item" />
+    <div v-if="loading">Loading...</div>
+    <div v-else>
+      <div v-for="item in category" :key="item.id">
+        <ChangeCarsBox :item="item" />
+      </div>
     </div>
   </Section>
   <Service />
@@ -190,11 +197,11 @@ const titles = [
           Porsche, and Range Rover, to name a few. Rent a car with the best car
           rental company in Dubai.
         </p>
-        <NuxtLink to="/cars" >
+        <NuxtLink to="/cars">
           <Button label="All Cars" />
         </NuxtLink>
       </div>
     </div>
   </Section>
-  <Faq/>
+  <Faq />
 </template>
