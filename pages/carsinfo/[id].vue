@@ -12,8 +12,10 @@ const imgUrl = config.public.VITE_IMGURL;
 const carId = route.params.id; // Get carId from route params
 
 const selectedCarItem = computed(() => {
-  return store.carsAll.find((item) => item.id === carId);
+  return store.carsAll.find((item) => item.id === carId) || null;
 });
+
+console.log(selectedCarItem.value);
 
 import "swiper/css";
 import "swiper/css/free-mode";
@@ -29,11 +31,8 @@ const setThumbsSwiper = (swiper) => {
 
 <template>
   <Section>
-    <div class="grid grid-cols-2">
-      <div
-        class="max-w-[500px]"
-        v-if="selectedCarItem && selectedCarItem.car_images"
-      >
+    <div class="grid grid-cols-2 gap-8">
+      <div class="w-full" v-if="selectedCarItem && selectedCarItem.car_images">
         <swiper
           :style="{
             '--swiper-navigation-color': '#fff',
@@ -52,7 +51,7 @@ const setThumbsSwiper = (swiper) => {
             )"
             :key="index"
           >
-            <NuxtImg :src="imgUrl + image.image.src" />
+            <NuxtImg :src="imgUrl + image.image.src" class="object-cover" />
           </swiper-slide>
         </swiper>
         <swiper
@@ -75,27 +74,122 @@ const setThumbsSwiper = (swiper) => {
           </swiper-slide>
         </swiper>
       </div>
-      <div class="w-full border-2">
-        <h1 class="text-2xl">cobalt</h1>
+      <div
+        class="w-full max-h-[600px] flex flex-col gap-4 justify-between"
+        v-if="selectedCarItem"
+      >
+        <h1 class="text-2xl">
+          {{
+            selectedCarItem.brand.title +
+            " " +
+            selectedCarItem.model.name +
+            " " +
+            `(${selectedCarItem.color})`
+          }}
+        </h1>
         <ul class="grid grid-cols-2">
           <li>
             <span class="text-orange-500 group-hover:text-white">price:</span>
-            {{ 500 + " aed / " + 300 + " usd" }}
+            {{
+              selectedCarItem.price_in_aed + " aed / " + price_in_usd + " usd"
+            }}
           </li>
           <li>
             <span class="text-orange-500 group-hover:text-white">per day:</span>
-            {{ 500 + " aed / " + 300 + " usd" }}
+            {{ selectedCarItem.limitperday + " aed " }}
           </li>
           <li>
             <span class="text-orange-500 group-hover:text-white">Deposit:</span>
-            {{ 500 + " aed / " + 300 + " usd" }}
+            {{ selectedCarItem.deposit + " aed " }}
           </li>
           <li>
-            <span class="text-orange-500 group-hover:text-white">Premium protection:</span>
-            {{ 500 + " aed / " + 300 + " usd" }}
+            <span class="text-orange-500 group-hover:text-white"
+              >Premium protection:</span
+            >
+            {{ selectedCarItem.premium_protection + " aed " }}
           </li>
         </ul>
+        <ul
+          class="grid grid-cols-5 gap-2 [&>li]:p-2 [&>li]:flex [&>li]:gap-4 [&>li]:bg-gray-300 [&>li]:items-center [&>li]:justify-center"
+        >
+          <li>
+            <UIcon name="material-symbols-light:calendar-month-outline-sharp" />
+            <p>{{ selectedCarItem.year }}</p>
+          </li>
+          <li>
+            <UIcon name="ci:timer" />
+            <p>{{ selectedCarItem.seconds }}</p>
+          </li>
+          <li>
+            <UIcon name="material-symbols:speed-outline" />
+            <p>{{ selectedCarItem.max_speed }}</p>
+          </li>
+          <li>
+            <UIcon name="mdi:seat-passenger" />
+            <p>{{ selectedCarItem.max_people }}</p>
+          </li>
+          <li>
+            <UIcon name="ic:outline-color-lens" />
+            <p>{{ selectedCarItem.color }}</p>
+          </li>
+          <li>
+            <UIcon name="tabler:engine" />
+            <p>{{ selectedCarItem.motor }}</p>
+          </li>
+          <li>
+            <UIcon name="solar:transmission-circle-linear" />
+            <p>{{ selectedCarItem.transmission }}</p>
+          </li>
+          <li>
+            <UIcon name="solar:wheel-outline" />
+            <p>{{ selectedCarItem.drive_side }}</p>
+          </li>
+          <li>
+            <UIcon name="lucide:fuel" />
+            <p>{{ selectedCarItem.petrol }}</p>
+          </li>
+          <li>
+            <UIcon name="ph:car" />
+            <p>{{store.category.find(item => item.id == selectedCarItem.category_id).name_en.slice(0,6,"..") + ".."}}</p>
+          </li>
+        </ul>
+        <form
+          class="grid grid-cols-2 gap-3 [&>input]:bg-gray-300 [&>input]:p-3 [&>input]:bg-transparent [&>input]:border-2 border-2 p-3"
+        >
+          <input placeholder="Name" type="text" required />
+          <input placeholder="Phone" type="number" min="8" required />
+          <input placeholder="Period" type="text" />
+          <input placeholder="Details" type="text" />
+          <Button label="send" />
+        </form>
+        <div class="grid grid-cols-3 gap-4">
+          <NuxtLink
+            to="https://api.whatsapp.com/send/?phone=971527030189&text&type=phone_number&app_absent=0"
+            class="border-2 p-1 flex items-center justify-center gap-2 hover:bg-orange-500"
+            ><UIcon name="nimbus:whatsapp" class="w-6 h-6" />Whats Up</NuxtLink
+          >
+          <NuxtLink
+            to="https://t.me/+971527030189"
+            class="border-2 p-1 flex items-center justify-center gap-2 hover:bg-orange-500"
+            ><UIcon name="ri:telegram-line" class="w-6 h-6" />Telegram</NuxtLink
+          >
+          <NuxtLink
+            to="tel:+971527030189"
+            class="border-2 p-1 flex items-center justify-center gap-2 hover:bg-orange-500"
+            ><UIcon
+              name="material-symbols:call-outline-rounded"
+              class="w-6 h-6"
+            />Phone</NuxtLink
+          >
+        </div>
       </div>
+      <p
+        v-else
+        class="h-[500px] flex justify-center items-center w-full col-span-2"
+      >
+        <UIcon name="svg-spinners:3-dots-fade" class="w-52 h-52" />
+      </p>
+      <!-- Yuklanayotgan paytda ko'rsatiladigan xabar -->
     </div>
   </Section>
 </template>
