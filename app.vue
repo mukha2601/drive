@@ -69,10 +69,10 @@ onMounted(async () => {
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 
 * {
-  border-color: black;
+  border-color: rgb(187, 186, 186);
   color: black;
   scroll-behavior: smooth;
-  
+  /* border: none; */
 }
 
 body {
