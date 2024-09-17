@@ -10,8 +10,6 @@ const config = useRuntimeConfig();
 const imgUrl = config.public.VITE_IMGURL;
 const category = computed(() => store.category);
 const loading = computed(() => !store.category || store.category.length === 0);
-console.log(category);
-
 
 const onSwiper = (swiperInstance) => {
   swiper = swiperInstance;
@@ -26,37 +24,6 @@ const nextSlide = () => {
     swiper.slideNext();
   }
 };
-
-// const titles = [
-//   {
-//     title: "BUDGET CARS",
-//     item: store.budgetCars,
-//   },
-//   {
-//     title: "SPORT CARS",
-//     item: store.sportCars,
-//   },
-//   {
-//     title: "LUXURY CARS",
-//     item: store.luxuryCars,
-//   },
-//   {
-//     title: "MUSCLE CARS",
-//     item: store.muscleCars,
-//   },
-//   {
-//     title: "CONVERTIBLE CARS",
-//     item: store.convertibleCars,
-//   },
-//   {
-//     title: "SUV CARS",
-//     item: store.suvCars,
-//   },
-//   {
-//     title: "AMERICAN BRANDS",
-//     item: store.americanCars,
-//   },
-// ];
 </script>
 
 <template>

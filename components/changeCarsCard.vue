@@ -13,7 +13,7 @@ const props = defineProps({
 <template>
   <NuxtLink
     :to="`/carsinfo/${item.id}`"
-    class="p-4 flex h-96 flex-col justify-between border-2 gap-4 w-full hover:bg-orange-500 hover:rounded-xl group"
+    class="p-4 flex h-96 flex-col justify-between border-2 gap-4 w-full hover:bg-orange-500 group"
   >
     <div class="flex h-2/3 justify-center items-center w-full">
       <NuxtImg
