@@ -9,23 +9,45 @@
         <UIcon
           name="arcticons:dsdrive"
           class="w-8 h-8 text-white font-bolder"
-          />
-          <p class="text-2xl text-white">Drive</p>
+        />
+        <p class="text-2xl text-white">Drive</p>
       </div>
     </NuxtLink>
     <div class="nav h-full border-x-2 flex gap-4 px-4 items-center">
-      <NuxtLink class="hover:text-orange-500" to="/cars">CARS</NuxtLink>
-      <NuxtLink class="hover:text-orange-500" to="/">BRAND</NuxtLink>
-      <NuxtLink class="hover:text-orange-500" to="/service">SERVICES</NuxtLink>
-      <NuxtLink class="hover:text-orange-500" to="/about">ABOUT US</NuxtLink>
-      <NuxtLink class="hover:text-orange-500" to="/contacts">CONTACTS</NuxtLink>
-      <NuxtLink class="hover:text-orange-500" to="/blog">BLOG</NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/cars">
+        {{ $t("header.cars").toUpperCase() }}
+      </NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/">
+        {{ $t("header.brands").toUpperCase() }}
+      </NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/service">
+        {{ $t("header.services").toUpperCase() }}
+      </NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/about">
+        {{ $t("header.about").toUpperCase() }}
+      </NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/contacts">
+        {{ $t("header.contacts").toUpperCase() }}
+      </NuxtLink>
+      <NuxtLink class="hover:text-orange-500" to="/blog">
+        {{ $t("header.blog").toUpperCase() }}
+      </NuxtLink>
     </div>
 
     <div class="flex h-full border-s-2">
       <div class="lang flex border-e-2">
-        <button class="h-full px-4 border-e-2 hover:bg-orange-500">RU</button>
-        <button class="h-full px-4 hover:bg-orange-500">UZ</button>
+        <button
+          class="h-full px-4 border-e-2 hover:bg-orange-500"
+          @click="changeLanguage('ru')"
+        >
+          RU
+        </button>
+        <button
+          class="h-full px-4 hover:bg-orange-500"
+          @click="changeLanguage('en')"
+        >
+          EN
+        </button>
       </div>
       <div class="search p-2">
         <input
@@ -37,3 +59,20 @@
     </div>
   </div>
 </template>
+
+<script setup>
+import { useI18n } from "vue-i18n";
+// I18n hookini olamiz
+const { locale } = useI18n();
+
+function changeLanguage(lang) {
+  locale.value = lang; // Tilni o'zgartiramiz
+}
+
+// const language = computed({
+//   get: () => locale.value,
+//   set: (value) => {
+//     setLocale(value);
+//   },
+// });
+</script>
