@@ -32,12 +32,9 @@ const nextSlide = () => {
       <div
         class="left w-full border-e-2 h-full flex flex-col justify-between gap-6 p-6"
       >
-        <h1 class="text-[58px]">TOP LUXURY CAR RENTAL DUBAI</h1>
-        <p class="text-[20px] font-thin">
-          Best sports car & supercar rental Dubai, Exclusive offers on luxury
-          car rental Dubai Cheap price
-        </p>
-        <Button label="RENT A CAR DUBAI CATALOG" />
+        <h1 class="text-[52px]">{{ $t("hero.title") }}</h1>
+        <p class="text-[20px] font-thin">{{ $t("hero.subtitle") }}</p>
+        <Button :label="$t('hero.button1')" />
       </div>
       <div class="right col-span-2 h-full p-4 relative">
         <div
@@ -68,13 +65,13 @@ const nextSlide = () => {
           </SwiperSlide>
         </Swiper>
         <div class="absolute bottom-4 right-4 flex gap-4 z-10">
-          <Button label="prev" @click="prevSlide" />
-          <Button label="next" @click="nextSlide" />
+          <Button :label="$t('hero.button2')" @click="prevSlide" />
+          <Button :label="$t('hero.button3')" @click="nextSlide" />
         </div>
       </div>
     </div>
   </section>
-  <Section id="brands" label="Brands">
+  <Section id="brands" :label="$t('brands.title')">
     <Swiper
       :space-between="20"
       :grid="{ rows: 2, fill: 'row' }"
@@ -102,42 +99,14 @@ const nextSlide = () => {
   <Service />
   <Section>
     <div class="flex flex-col gap-4">
-      <h1 class="text-4xl">LUXURY CAR RENTAL IN DUBAI</h1>
-      <p>
-        Are you ready to feel the adrenaline rush and unleash your inner speed
-        demon? Look no further than Auto Zoom luxury car rental Dubai, the city
-        where dreams become reality. In this ultimate guide to sports car rental
-        Dubai, we will take you on a thrilling journey through the world of
-        luxury and supercar rental Dubai. Imagine cruising down the iconic
-        Sheikh Zayed Road in a sleek and powerful sports car rental Dubai style,
-        turning heads and leaving everyone in awe of your style. Whether you are
-        a car enthusiast or simply looking to
-      </p>
+      <h1 class="text-4xl">{{ $t('luxury.title1') }}</h1>
+      <p>{{ $t('luxury.subtitle1') }}</p>
     </div>
     <div class="flex flex-col gap-4 mt-4">
       <h1 class="text-4xl">
-        What are the requirements to rent a luxury car in Dubai?
+        {{ $t('luxury.title2') }}
       </h1>
-      <p>
-        To rent a car Dubai, it's enough to have a valid driving license and
-        enough funds. & you'll need to show your foreign passport and prove that
-        you have come of age and have driving experience.The age limit and the
-        requirements for the license depend on where you're from. Visitors from
-        Europe, the UK, the US and the Middle East can drive with their national
-        licenses. People from other parts of the world need an international
-        license. The age limit for the driver might vary from 21 to 25 years.
-        Please get in touch with us before placing an order to discuss your
-        individual situation.Cars in the UAE have steering wheels on the left
-        side. Drivers stick to the right side of the road.If needed, you can add
-        a second driver to your rental contract. The requirements for this
-        person will be the same as for the first driver. If you let someone who
-        isn't mentioned in your rental contract take a place behind the wheel,
-        you can get a fine.The duration of a premium car rental in Dubai can
-        vary from one day to several weeks. Discounts are common for luxury car
-        rental Dubai monthly car rental plan. Use this chance to have fun,
-        increase your high social status and please your dearest and
-        nearest!Please avoid smoking inside the rented vehicle.
-      </p>
+      <p>{{ $t('luxury.subtitle2') }}</p>
     </div>
   </Section>
   <Section>
@@ -154,18 +123,10 @@ const nextSlide = () => {
         ></iframe>
       </div>
       <div class="w-1/2 flex flex-col gap-4 justify-around">
-        <h1 class="text-4xl">SPORTS CAR RENTAL DUBAI</h1>
-        <p>
-          Auto Zoom L L C a Car is a Top Luxury Car Rental Dubai based company,
-          We offer sports car rental, and supercar rental in Dubai. The best
-          luxury car rental process provided by our fleet . We own a diverse
-          range of luxury supercar rental and sports car rental Dubai style ,
-          including Rolls Royce, Lamborghini, Maserati, Ferrari, Mercedes Benz,
-          Porsche, and Range Rover, to name a few. Rent a car with the best car
-          rental company in Dubai.
-        </p>
+        <h1 class="text-4xl">{{ $t('videopage.title') }}</h1>
+        <p>{{ $t('videopage.subtitle') }}</p>
         <NuxtLink to="/cars">
-          <Button label="All Cars" />
+          <Button :label="$t('videopage.button')" />
         </NuxtLink>
       </div>
     </div>

@@ -26,6 +26,7 @@ export default {
     convertible: "convertible cars",
     suv: "suv",
     american: "american brands",
+    button: "See All",
   },
   services: {
     title: "services",
@@ -50,40 +51,12 @@ export default {
     subtitle2:
       "To rent a car Dubai, it's enough to have a valid driving license and enough funds. & you'll need to show your foreign passport and prove that you have come of age and have driving experience.The age limit and the requirements for the license depend on where you're from. Visitors from Europe, the UK, the US and the Middle East can drive with their national licenses. People from other parts of the world need an international license. The age limit for the driver might vary from 21 to 25 years. Please get in touch with us before placing an order to discuss your individual situation.Cars in the UAE have steering wheels on the left side. Drivers stick to the right side of the road.If needed, you can add a second driver to your rental contract. The requirements for this person will be the same as for the first driver. If you let someone who isn't mentioned in your rental contract take a place behind the wheel, you can get a fine.The duration of a premium car rental in Dubai can vary from one day to several weeks. Discounts are common for luxury car rental Dubai monthly car rental plan. Use this chance to have fun, increase your high social status and please your dearest and nearest!Please avoid smoking inside the rented vehicle.",
   },
-  videpage: {
+  videopage: {
     title: "SPORTS CAR RENTAL DUBAI",
     subtitle:
       "Auto Zoom L L C a Car is a Top Luxury Car Rental Dubai based company, We offer sports car rental, and supercar rental in Dubai. The best luxury car rental process provided by our fleet . We own a diverse range of luxury supercar rental and sports car rental Dubai style , including Rolls Royce, Lamborghini, Maserati, Ferrari, Mercedes Benz, Porsche, and Range Rover, to name a few. Rent a car with the best car rental company in Dubai.",
     button: "All Cars",
   },
-  faq: [
-    {
-      label: "What is the minimum age requirements to rent a car in Dubai ?",
-      content:
-        "Drivers under 25 must have a license for a minimum of three years. The same applies for the person(s) whose name(s) is/are mentioned as additional driver.",
-    },
-    {
-      label: "What do you need for a luxury car rental in Dubai ?",
-      content:
-        "Drivers shall be required to have a valid drivers license and Passport copy.",
-    },
-    {
-      label: "How much is the Insurance limit on luxury car rental Dubai?",
-      content:
-        "Includes an overall Motor Vehicle Insurance. 3000-5000 AED for Excess Luxury Cars. 7000-10000 AED for Sports Cars",
-    },
-    {
-      label:
-        "What are the driving licenses that can be used in Arab countries ?",
-      content:
-        "Local driving license for UAE citizens. International driving licenses issued by the following countries: 1. Kingdom of Saudi Arabia, 2. Egypt, 3. Bahrain, 4. Jordan, 5. Kuwait, 6. Tunisia, 7. Sultanate of Oman, 8. Algeria, 9. Qatar, 10. Morocco, 11. Sudan, 12. Somalia, 13. Palestine, 14. Lebanon, 15. Libya, 16. Syria, 17 Yemen, 18. Iraq, 19. Djibouti, 20. Comoros, 21. Mauritania.",
-    },
-    {
-      label: "Can anyone else drive the car i rent?",
-      content:
-        "The contract prescribes two drivers, but at the time of filling out the contract, you must provide a drivers license and passport",
-    },
-  ],
   footer: {
     title: "LUXURY CAR RENTAL IN DUBAI",
     subtitle:
@@ -112,5 +85,93 @@ export default {
     carType: "car type",
     carBrand: "car brand",
   },
-  about: {},
+  about: {
+    about: "about us",
+    title1:
+      "Welcome to Auto Zoom Car Rental Co LLC – Your Partner in Unforgettable Journeys in Dubai!",
+    subtitle1:
+      "In a world where every trip is an adventure, Auto Zoom Car Rental Co LLC offers you a unique car rental experience in the heart of Dubai.",
+    title2: "Why Auto Zoom?",
+    title3: "Elegant Car Fleet:",
+    subtitle3:
+      " We provide you the opportunity to choose from our luxurious car fleet – from sleek sedans to powerful SUVs. We have a vehicle to match your style and meet your needs.",
+    title4: "Worry-Free Rental:",
+    subtitle4:
+      "Our goal is to make your journey as comfortable as possible. Flexible rental terms, the option to hire with a driver, and a wide range of additional services – all for your convenience.",
+    title5: "Transparency and Trust:",
+    subtitle5:
+      "We value every customer, so our prices are honest and transparent. No hidden fees, no unexpected surprises. Trust us, and we will make your rental experience straightforward and clear.",
+    title6: "Service at Your Level:",
+    subtitle6:
+      "Our friendly and professional team is ready to bring your ideas to life. We aim not just to provide a car but to create a genuine automotive experience for you.",
+    title7: "Our Mission:",
+    subtitle7:
+      "Auto Zoom Car Rental Co LLC is created with one goal – to make every journey unforgettable. We strive to offer you not just a car but the key to new experiences and adventures.",
+    title8: "Contact Us:",
+    subtitle8:
+      "Trust the professionals – trust Auto Zoom Car Rental Co LLC. Get in touch with us today to start your exciting journey through Dubai in our stylish and reliable cars. Allow yourself to savor every moment of your trip.",
+  },
+  contacts: {
+    title1: "HAVE ANY QUESTIONS?",
+    subtitle:
+      "We would love to help Auto Zoom Car Rental Dubai, is the best luxury car rental Dubai based company.",
+    title2: "Head office",
+  },
+  blog: {
+    title: "blog",
+    card: [
+      {
+        id: 1,
+        title: "Top 3 Destinations to Visit in Dubai in a Rental Car",
+        subtitle:
+          "One of the main reasons to hire a car in Dubai is the quality of the UAE roads. According to the World Economic Forum, the Emirates belong to the top seven countries with the most exemplary road infrastructure.",
+        data: "25 Seb 2022",
+        button: "learn more",
+      },
+      {
+        id: 2,
+        title: "Top 5 wonderful spots for a car photo session in Dubai",
+        subtitle:
+          "There are so many wonderful things to do in Dubai, but when you rent a car your opportunities are nearly doubled. The number of places you will die to go to and make memorable pictures is such that it makes you impossible to resist to hire a mode of transportation, if not for a day or two, then at least for a couple of hours.",
+        data: "11 Feb 2022",
+        button: "learn more",
+      },
+      {
+        id: 3,
+        title: "Top 5 Reasons to Rent a Car Dubai Style this Summer",
+        subtitle:
+          "Summer is more than just a beach and a body, and Autozoom Luxury Car Rental is more than just a regular car hire business. We're your one-stop four-wheel solution to making the most of your time in Dubai.",
+        data: "31 Jul 2022",
+        button: "learn more",
+      },
+    ],
+  },
+  terms: {
+    title1: "TERMS AND CONDITIONS",
+    subtitle2:
+      "The Lessor mentioned overleaf, called Auto Zoom Car Rental, hereby rents vehicle identified overleaf to Renter subject to all terms and conditions on the front page and this page and the Renter, on consideration thereof agrees to them as the essence of the agreement.",
+    title2: "1. Delivery and Return",
+    subtitle2:
+      "The vehicle is delivered to the Renter in good overall condition and without apparent defects. Any complaints as to its condition must be made to the Lessor immediately upon delivery. The Renter agrees to return it with all documents and accessories and in the same condition to the Lessor at the location and on the date designated in this agreement. The Lessor reserves the right to repossess the vehicle without demand at Renter’s expense if vehicle is used in violation of this agreement.",
+    title3: "2. Damage, Loss, Theft etc.",
+    subtitle3:
+      "In the event of damages or loss of the vehicle or parts of it, including fire and breakage of glass, the Renter shall irrespective of his or the driver’s fault, pay the amount of all resulting loss and expenses to the Lessor (including but not limited to replacement or recovery costs, repair costs, compensation for decline in value and loss of the rental fee). If Standard Terms and Conditions of Rent are violated, any legal provisions (as well as customs regulations or insurance regulations) of loss of revenue the Lessor may charge a compensation corresponding to the rental charge, until the day the vehicle or a replacement vehicle will again be available to the Leas or. This liability of the Renter may be waived if renter accepts Loss Damage Waiver according to Clause 10 by placing his signature in the space “Accept” on the front page, provided that the renter complies in all other respects with the terms and conditions of this Rental Agreement.",
+    title4: "3. Charges",
+    subtitle4:
+      "Renter shall pay any charges shown on the page or mentioned in the current tariffs. a) The Cash deposit will be returned after 21 working days. b) The Customer has to pay all the expenses (damage, traffic fines, fuel) if the sum of the charges is more than 30% of the deposit.",
+    title5: "4. Indemnity",
+    subtitle5:
+      "The Lessor is only responsible for loss or damage suffered by Renter or Third Parties, if such loss or damage was caused intentionally or through negligence on Lessor’s part. In all other cases, the Lessor cannot accept any liability and shall be immune against such claims.",
+    title6: "5. Conditions of use",
+    subtitle6:
+      "– Rented vehicles are not to be driven while Renter or any other driver of vehicle is under the influence of alcohol, hallucinatory drugs, narcotics, barbiturates, or any other substance impairing consciousness or ability to react. Rented vehicles are not to be driven in contravention of any customs, traffic or other regulations;",
+  },
+  carsinfo: {
+    price: "price",
+    perDay: "per day",
+    deposit: "deposit",
+    premiumProtection: "premium protection",
+    button: "send",
+    title: "SIMILAR OFFERS",
+  },
 };

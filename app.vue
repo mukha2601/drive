@@ -72,6 +72,7 @@ onMounted(async () => {
   border-color: black;
   color: black;
   scroll-behavior: smooth;
+  
 }
 
 body {
