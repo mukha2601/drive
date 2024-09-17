@@ -9,27 +9,26 @@ export default defineNuxtConfig({
     "@nuxtjs/i18n",
   ],
   css: ["swiper/swiper-bundle.css", "swiper/css/grid"],
-  plugins: ["~/plugins/i18n.js"],
-  // i18n: {
-  //   lazy: true,
-  //   langDir: "locales",
-  //   strategy: "no_prefix",
-  //   locales: [
-  //     {
-  //       code: "en",
-  //       iso: "en",
-  //       name: "en",
-  //       file: "en.js",
-  //     },
-  //     {
-  //       code: "ru",
-  //       iso: "ru",
-  //       name: "ru",
-  //       file: "ru.js",
-  //     },
-  //   ],
-  //   defaultLocale: "ru",
-  // },
+  i18n: {
+    lazy: true,
+    langDir: "locales",
+    strategy: "no_prefix",
+    locales: [
+      {
+        code: "en",
+        iso: "en",
+        name: "en",
+        file: "en.js",
+      },
+      {
+        code: "ru",
+        iso: "ru",
+        name: "ru",
+        file: "ru.js",
+      },
+    ],
+    defaultLocale: "en",
+  },
 
   runtimeConfig: {
     public: {

@@ -38,13 +38,13 @@
       <div class="lang flex border-e-2">
         <button
           class="h-full px-4 border-e-2 hover:bg-orange-500"
-          @click="changeLanguage('ru')"
+          @click="language = 'ru'"
         >
           RU
         </button>
         <button
           class="h-full px-4 hover:bg-orange-500"
-          @click="changeLanguage('en')"
+          @click="language = 'en'"
         >
           EN
         </button>
@@ -63,16 +63,12 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 // I18n hookini olamiz
-const { locale } = useI18n();
+const { locale, setLocale } = useI18n();
 
-function changeLanguage(lang) {
-  locale.value = lang; // Tilni o'zgartiramiz
-}
-
-// const language = computed({
-//   get: () => locale.value,
-//   set: (value) => {
-//     setLocale(value);
-//   },
-// });
+const language = computed({
+  get: () => locale.value,
+  set: (value) => {
+    setLocale(value);
+  },
+});
 </script>
