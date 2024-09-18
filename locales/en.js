@@ -117,36 +117,10 @@ export default {
   },
   blog: {
     title: "blog",
-    card: [
-      {
-        id: 1,
-        title: "Top 3 Destinations to Visit in Dubai in a Rental Car",
-        subtitle:
-          "One of the main reasons to hire a car in Dubai is the quality of the UAE roads. According to the World Economic Forum, the Emirates belong to the top seven countries with the most exemplary road infrastructure.",
-        data: "25 Seb 2022",
-        button: "learn more",
-      },
-      {
-        id: 2,
-        title: "Top 5 wonderful spots for a car photo session in Dubai",
-        subtitle:
-          "There are so many wonderful things to do in Dubai, but when you rent a car your opportunities are nearly doubled. The number of places you will die to go to and make memorable pictures is such that it makes you impossible to resist to hire a mode of transportation, if not for a day or two, then at least for a couple of hours.",
-        data: "11 Feb 2022",
-        button: "learn more",
-      },
-      {
-        id: 3,
-        title: "Top 5 Reasons to Rent a Car Dubai Style this Summer",
-        subtitle:
-          "Summer is more than just a beach and a body, and Autozoom Luxury Car Rental is more than just a regular car hire business. We're your one-stop four-wheel solution to making the most of your time in Dubai.",
-        data: "31 Jul 2022",
-        button: "learn more",
-      },
-    ],
   },
   terms: {
     title1: "TERMS AND CONDITIONS",
-    subtitle2:
+    subtitle1:
       "The Lessor mentioned overleaf, called Auto Zoom Car Rental, hereby rents vehicle identified overleaf to Renter subject to all terms and conditions on the front page and this page and the Renter, on consideration thereof agrees to them as the essence of the agreement.",
     title2: "1. Delivery and Return",
     subtitle2:
@@ -172,4 +146,6 @@ export default {
     button: "send",
     title: "SIMILAR OFFERS",
   },
+  photoshoot: "Photoshoot with luxury car rental Dubai",
+  buggy: "Ride a buggy in Dubai and have fun",
 };

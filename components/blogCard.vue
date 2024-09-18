@@ -1,11 +1,11 @@
 <template>
   <div class="p-4 flex border-2 gap-4">
-    <NuxtImg :src="image" class="max-w-[300px] object-cover" />
+    <NuxtImg :src="item.image" class="max-w-[300px] object-cover" />
     <div class="flex flex-col justify-between gap-4 w-full">
-      <h1>{{ title }}</h1>
-      <p>{{ descr }}</p>
+      <h1>{{ item.title }}</h1>
+      <p>{{ item.descr }}</p>
       <div class="flex justify-between items-center w-full">
-        <span>{{ data }}</span>
+        <span>{{ item.data }}</span>
         <Button label="laern more" />
       </div>
     </div>
@@ -14,20 +14,8 @@
 
 <script setup>
 defineProps({
-  image: {
-    type: String,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  descr: {
-    type: String,
-    required: true,
-  },
-  data: {
-    type: String,
+  item: {
+    type: Object,
     required: true,
   },
 });
