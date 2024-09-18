@@ -9,29 +9,34 @@
 <script setup>
 import { useStore } from "@/store";
 const store = useStore();
+
 onMounted(async () => {
   try {
+    const carResponse = await fetch("https://realauto.limsa.uz/api/cars");
+    const cars = await carResponse.json();
+    store.carsAll = cars.data;
+    store.filter = cars.data;
+
     // Fetching brands
-    const brandsResponse = await fetch(
-      "https://api.autozoomrental.com/api/brands/"
-    );
+    const brandsResponse = await fetch("https://realauto.limsa.uz/api/brands/");
     const brands = await brandsResponse.json();
     store.brands = brands.data;
 
     // Fetching cars
     const carsResponse = await fetch(
-      "https://api.autozoomrental.com/api/cars/category"
+      "https://realauto.limsa.uz/api/categories"
     );
     const category = await carsResponse.json();
+    console.log(category);
+
     store.category = category.data;
 
     // // Fetching cars
-    // const carResponse = await fetch("https://api.autozoomrental.com/api/cars");
+    // const carResponse = await fetch("https://realauto.limsa.uz/api/cars");
     // const car = await carResponse.json();
 
     category.data.forEach((item) => {
       item.cars?.forEach((element) => {
-        store.carsAll.push(element);
         store.filter.push(element);
 
         switch (element.category_id.trim()) {

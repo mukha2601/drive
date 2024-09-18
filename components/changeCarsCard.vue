@@ -18,7 +18,7 @@ const props = defineProps({
     <div class="flex h-2/3 justify-center items-center w-full">
       <NuxtImg
         :src="
-          'https://api.autozoomrental.com/api/uploads/images/' +
+          'https://realauto.limsa.uz/api/uploads/images/' +
           (item.car_images.find((image) => image.is_main)?.image.src ||
             item.car_images[0].image.src)
         "
