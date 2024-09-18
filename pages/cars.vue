@@ -5,7 +5,6 @@ const store = useStore();
 function resetPage() {
   store.carType = null;
   store.carBrand = null;
-  // Sahifani yangilash
   store.filter = store.carsAll;
 }
 </script>
@@ -20,10 +19,9 @@ function resetPage() {
         placeholder="Car Type"
         variant="outline"
         :options="
-          store.category.map((item) => ({
-            key: item.id,
-            value: item.id,
-            label: item.name_en,
+          store.category.map((category) => ({
+            label: category.name_en,
+            value: category.id,
           }))
         "
         @change="store.getCarType(store.carType)"
@@ -40,20 +38,19 @@ function resetPage() {
         placeholder="Car Brand"
         variant="outline"
         :options="
-          store.category
-            .find((item) => item.id == store.carType)
-            ?.cars.map((car) => ({
-              key: car.brand.id,
-              value: car.brand.id,
-              label: car.brand.title,
-            })) ||
-          store.carsAll.map((car) => ({
-            key: car.brand.id,
-            value: car.brand.id,
-            label: car.brand.title,
-          }))
+          store.carType
+            ? store.carsAll
+                .filter((item) => item.category_id == store.carType)
+                .map((car) => ({
+                  value: car.brand.id,
+                  label: car.brand.title,
+                }))
+            : store.brands.map((brand) => ({
+                label: brand.title,
+                value: brand.id,
+              }))
         "
-        @change="store.getCarBrand(store.carBrand)"
+        @change="store.getCarBrand($event)"
         :ui="{
           rounded: 'rounded-none',
           padding: { sm: 'py-2' },
@@ -64,6 +61,12 @@ function resetPage() {
 
       <button @click="resetPage()" class="w-full border-2">reset</button>
     </nav>
+    <div
+      v-if="!store.filter.length"
+      class="w-full h-96 border-2 border-y-0 flex justify-center items-center"
+    >
+      <p class="opacity-40">The information was not found!</p>
+    </div>
     <main class="w-full border-2 border-t-0 grid grid-cols-4 p-4 gap-4">
       <div v-for="item in store.filter">
         <ChangeCarsCard :item="item" />

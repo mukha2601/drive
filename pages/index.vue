@@ -53,7 +53,7 @@ const nextSlide = () => {
           }"
           class="mySwiper"
         >
-          <SwiperSlide :zoom="true" v-for="item in store.luxuryCars">
+          <SwiperSlide :zoom="true" v-for="item in store.carsAll">
             <NuxtImg
               class="w-[500px]"
               :src="

@@ -25,7 +25,7 @@ defineProps({
       </NuxtLink>
     </div>
     <Swiper :slides-per-view="3.5" :space-between="20">
-      <SwiperSlide v-for="car in item.cars" :key="car.id">
+      <SwiperSlide v-for="car in store.carsAll.filter(el => el.category_id === item.id)" :key="car.id">
         <ChangeCarsCard :item="car" />
       </SwiperSlide>
     </Swiper>
