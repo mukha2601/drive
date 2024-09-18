@@ -86,7 +86,9 @@ const setThumbsSwiper = (swiper) => {
         </h1>
         <ul class="grid grid-cols-2">
           <li>
-            <span class="text-orange-500 group-hover:text-white">price:</span>
+            <span class="text-orange-500 group-hover:text-white">{{
+              $t("carsinfo.price")
+            }}</span>
             {{
               selectedCarItem.price_in_aed +
               " aed / " +
@@ -95,17 +97,21 @@ const setThumbsSwiper = (swiper) => {
             }}
           </li>
           <li>
-            <span class="text-orange-500 group-hover:text-white">per day:</span>
+            <span class="text-orange-500 group-hover:text-white">{{
+              $t("carsinfo.perDay")
+            }}</span>
             {{ selectedCarItem.limitperday + " aed " }}
           </li>
           <li>
-            <span class="text-orange-500 group-hover:text-white">Deposit:</span>
+            <span class="text-orange-500 group-hover:text-white">{{
+              $t("carsinfo.deposit")
+            }}</span>
             {{ selectedCarItem.deposit + " aed " }}
           </li>
           <li>
-            <span class="text-orange-500 group-hover:text-white"
-              >Premium protection:</span
-            >
+            <span class="text-orange-500 group-hover:text-white">{{
+              $t("carsinfo.premiumProtection")
+            }}</span>
             {{ selectedCarItem.premium_protection + " aed " }}
           </li>
         </ul>
@@ -169,7 +175,7 @@ const setThumbsSwiper = (swiper) => {
           <input placeholder="Phone" type="number" min="8" required />
           <input placeholder="Period" type="text" />
           <input placeholder="Details" type="text" />
-          <Button label="send" type="submit" />
+          <Button :label="$t('carsinfo.button')" type="submit" />
         </form>
         <div class="grid grid-cols-3 gap-4">
           <NuxtLink
@@ -201,7 +207,7 @@ const setThumbsSwiper = (swiper) => {
       <!-- Yuklanayotgan paytda ko'rsatiladigan xabar -->
     </div>
   </Section>
-  <Section label="SIMILAR OFFERS">
+  <Section :label="$t('carsinfo.title')">
     <main class="w-full grid grid-cols-4 gap-4">
       <div v-for="item in store.carsAll">
         <ChangeCarsCard :item="item" :route="route.params.id" />
