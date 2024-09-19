@@ -1,7 +1,7 @@
 <template>
   <Section :label="$t('services.title')">
-    <div class="flex gap-4">
-      <div class="flex flex-col justify-between gap-4 p-4 border-2 w-96">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="flex flex-col justify-between gap-4 p-4 border-2 w-full">
         <NuxtImg
           src="https://autozoomrental.com/static/media/sercardimg1.40892caaec9bfa3d404a.jpg"
           class="w-full"
@@ -12,7 +12,7 @@
           <Button :label="$t('services.card1.button')" />
         </NuxtLink>
       </div>
-      <div class="flex flex-col justify-between gap-4 p-4 border-2 w-96">
+      <div class="flex flex-col justify-between gap-4 p-4 border-2 w-full">
         <NuxtImg
           src="https://autozoomrental.com/static/media/sercardiimg2.79fb9209cbfcc61c8c65.jpg"
           class="w-full"

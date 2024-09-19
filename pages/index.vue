@@ -28,9 +28,7 @@ const nextSlide = () => {
 
 <template>
   <section id="hero" class="w-full border-2 border-t-0 shadow-2xl">
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-full grid-rows-1"
-    >
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1">
       <div
         class="left w-full border-e-2 h-full flex flex-col justify-between gap-6 p-6"
       >
@@ -59,7 +57,7 @@ const nextSlide = () => {
         >
           <SwiperSlide :zoom="true" v-for="item in store.carsAll">
             <NuxtImg
-              class="max-w-[500px] mb-10"
+              class="max-w-[500px] mb-10 min-h-96"
               :src="
                 imgUrl +
                   item.car_images.find((image) => image.is_main)?.image.src ||
@@ -107,6 +105,9 @@ const nextSlide = () => {
           grid: { rows: 2, fill: 'row' },
         },
       }"
+      :grid="{ rows: 2, fill: 'row' }"
+      :slidesPerView="1.5"
+      :spaceBetween="20"
       :modules="[Grid, Pagination]"
       :pagination="{ clickable: true }"
     >

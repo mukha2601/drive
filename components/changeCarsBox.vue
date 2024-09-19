@@ -17,7 +17,7 @@ defineProps({
 <template>
   <div class="budgetCars mb-6">
     <div class="flex gap-4 justify-between w-full items-center pb-6">
-      <h1 class="text-4xl">
+      <h1 class="md:text-xl lg:text-4xl">
         {{ locale === "ru" ? item.name_ru : item.name_en }}
       </h1>
       <NuxtLink to="/cars">
@@ -25,6 +25,8 @@ defineProps({
       </NuxtLink>
     </div>
     <Swiper
+      :slidesPerView="1.5"
+      :spaceBetween="20"
       :breakpoints="{
         420: {
           slidesPerView: 1.5,
@@ -35,7 +37,7 @@ defineProps({
           spaceBetween: 20,
         },
         768: {
-          slidesPerView: 3.5,
+          slidesPerView: 2.5,
           spaceBetween: 20,
         },
         1024: {
