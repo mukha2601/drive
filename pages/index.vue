@@ -45,6 +45,7 @@ const nextSlide = () => {
           class="w-[50%] h-full bg-orange-500 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         ></div>
         <Swiper
+        :modules="modules"
           slides-per-view="1"
           :loop="true"
           @swiper="onSwiper"

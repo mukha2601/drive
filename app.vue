@@ -39,6 +39,28 @@ onMounted(async () => {
     console.error("Error fetching data:", error);
   }
 });
+
+useHead({
+  title: "Drive",
+  meta: [
+    { charset: "utf-8" },
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+    {
+      content:
+        "Bu saytda siz o'zingiz yoqtirgan moshinani ijaraga olib haydashingiz mumkin!",
+    },
+  ],
+  link: [{ rel: "icon", type: "image/x-icon", href: "/logo.ico" }],
+});
+
+useSeoMeta({
+  ogTitle: "Drive",
+  ogDescription:
+    "Bu saytda siz o'zingiz yoqtirgan moshinani ijaraga olib haydashingiz mumkin!",
+  // ogImage: "https://www.gally.uz/logo.ico",
+  ogUrl: "https://www.drive.uz/",
+  ogType: "website",
+});
 </script>
 
 <style>
