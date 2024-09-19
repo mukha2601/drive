@@ -25,14 +25,14 @@ const props = defineProps({
         class="w-full"
       />
     </div>
-    <p class="text-xs md:text-md">
+    <p class="text-xs sm:text-sm lg:text-lg">
       {{ item.brand.title + " " + item.model.name.slice(0, 16) }}
     </p>
-    <p class="text-xs md:text-md">
+    <p class="text-xs sm:text-sm lg:text-lg">
       <span class="text-orange-500 group-hover:text-white">price:</span>
       {{ item.price_in_aed + " aed / " + item.price_in_usd + " usd" }}
     </p>
-    <p class="text-xs md:text-md">
+    <p class="text-xs sm:text-sm lg:text-lg">
       <span class="text-orange-500 group-hover:text-white">per day:</span>
       {{ item.limitperday }}
     </p>

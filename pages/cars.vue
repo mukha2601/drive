@@ -12,7 +12,7 @@ function resetPage() {
 <template>
   <div class="flex flex-col">
     <nav
-      class="w-full border-2 border-t-0 p-4 grid grid-cols-4 gap-4 sticky top-[60px] bg-[#e3e4e6] shadow-xl z-20"
+      class="w-full border-2 border-t-0 grid max-sm:grid-cols-1 sm:grid-cols-3 lg:grid-cols-4  p-2 sm:p-4 gap-2 sm:gap-4 sticky top-[60px] bg-[#e3e4e6] shadow-xl z-20"
     >
       <USelect
         v-model="store.carType"
@@ -59,7 +59,7 @@ function resetPage() {
         }"
       />
 
-      <button @click="resetPage()" class="w-full border-2">reset</button>
+      <button @click="resetPage()" class="w-full border-2 hover:bg-orange-500">reset</button>
     </nav>
     <div
       v-if="!store.filter.length"
@@ -67,7 +67,9 @@ function resetPage() {
     >
       <p class="opacity-40">The information was not found!</p>
     </div>
-    <main class="w-full border-2 border-t-0 grid grid-cols-4 p-4 gap-4">
+    <main
+      class="w-full border-2 border-t-0 grid max-sm:grid-cols-2 max-lg:grid-cols-3 lg:grid-cols-4 p-2 sm:p-4 gap-2 sm:gap-4"
+    >
       <div v-for="item in store.filter">
         <ChangeCarsCard :item="item" />
       </div>

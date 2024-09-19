@@ -59,7 +59,7 @@ const nextSlide = () => {
         >
           <SwiperSlide :zoom="true" v-for="item in store.carsAll">
             <NuxtImg
-              class="max-w-[500px] mb-10"
+              class="max-w-[600px] mb-10"
               :src="
                 imgUrl +
                   item.car_images.find((image) => image.is_main)?.image.src ||
@@ -133,13 +133,13 @@ const nextSlide = () => {
   <Service />
   <Section>
     <div class="flex flex-col gap-4">
-      <h1 class="text-md sm:text-2xl md:text-4xl">{{ $t("luxury.title1") }}</h1>
+      <h1 class="text-md sm:text-xl md:text-2xl">{{ $t("luxury.title1") }}</h1>
       <p class="text-xs sm:text-lg md:text-xl font-thin">
         {{ $t("luxury.subtitle1") }}
       </p>
     </div>
     <div class="flex flex-col gap-4 mt-4">
-      <h1 class="text-md sm:text-2xl md:text-4xl">
+      <h1 class="text-md sm:text-xl md:text-2xl">
         {{ $t("luxury.title2") }}
       </h1>
       <p class="text-xs sm:text-lg md:text-xl font-thin">
