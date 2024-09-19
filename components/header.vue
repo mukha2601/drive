@@ -14,7 +14,7 @@
       </div>
     </NuxtLink>
     <nav
-      class="max-[1100px]:hidden h-full border-x-2 flex gap-4 px-4 items-center"
+      class="max-[950px]:hidden h-full border-x-2 flex gap-4 px-4 items-center"
     >
       <NuxtLink class="hover:text-orange-500" to="/cars">
         {{ $t("header.cars").toUpperCase() }}
@@ -51,36 +51,59 @@
           EN
         </button>
       </div>
-      <button
-        class="h-full px-4 hover:bg-orange-500 flex justify-center items-center"
-      >
-        <UIcon
-          name="material-symbols:dark-mode-outline-rounded"
-          class="w-6 h-6"
-        />
-      </button>
-      <div class="search p-2 max-[600px]:hidden border-s-2">
-        <input
-          type="text"
-          class="h-full bg-transparent border-2 ps-2 border-gray-400 outline-none focus:border-orange-500"
-          placeholder="search"
-        />
-      </div>
-      <!-- <button
-        @click="store.isOpen = true"
-        class="h-full px-4 hover:bg-orange-500 flex justify-center items-center border-s-2 min-[1000px]:hidden"
-      >
-        <UIcon name="material-symbols:menu" class="w-8 h-8" />
-      </button> -->
+
+      <UPopover :popper="{ placement: 'top-end' }" overlay>
+        <button
+          class="h-[58px] px-4 hover:bg-orange-500 flex justify-center items-center"
+        >
+          <!-- <UIcon
+            name="material-symbols:dark-mode-outline-rounded"
+            class="w-6 h-6"
+          /> -->
+          <UIcon name="ic:outline-search" class="w-6 h-6" />
+        </button>
+
+        <template #panel="{ close }">
+          <div class="p-4 bg-white">
+            <input
+              type="text"
+              class="h-full w-full bg-transparent border-2 p-2 border-gray-400 outline-none focus:border-orange-500"
+              placeholder="search"
+              v-model="selected"
+            />
+
+            <ul
+              v-if="selected && filteredResults.length"
+              class="mt-4 flex flex-col gap-3 overflow-y-scroll max-h-80"
+            >
+              <li
+                v-for="item in filteredResults"
+                :key="item.id"
+                class="hover:text-orange-500"
+              >
+                <NuxtLink @click="close" :to="`/carsinfo/${item.id}`">
+                  {{ item.brand }} - {{ item.model }}
+                </NuxtLink>
+              </li>
+            </ul>
+
+            <!-- Agar natijalar bo'lmasa va searchQuery bo'sh bo'lmasa, xabar ko'rsatadi -->
+            <p v-else-if="selected" class="mt-4 opacity-40">
+              Kiritilgan qiymatga mos natija topilmadi
+            </p>
+          </div>
+        </template>
+      </UPopover>
+
       <UPopover overlay>
         <button
-          class="h-[58px] px-4 hover:bg-orange-500 flex justify-center items-center border-s-2 min-[1100px]:hidden"
+          class="h-[58px] px-4 hover:bg-orange-500 flex justify-center items-center border-s-2 min-[950px]:hidden"
         >
           <UIcon name="material-symbols:menu" class="w-8 h-8" />
         </button>
 
         <template #panel="{ close }">
-          <div class="p-4 bg-white border-none">
+          <div class="p-4 bg-white">
             <nav class="h-full flex flex-col gap-4 px-4 items-center">
               <NuxtLink
                 @click="close()"
@@ -137,6 +160,23 @@ import { useStore } from "@/store";
 const store = useStore();
 import { useI18n } from "vue-i18n";
 const { locale, setLocale } = useI18n();
+
+// const disableScroll = () => {
+//   document.body.style.overflow = "hidden";
+// };
+
+// const enableScroll = () => {
+//   document.body.style.overflow = "";
+// };
+
+const selected = ref("");
+const filteredResults = computed(() => {
+  return store.search.filter(
+    (item) =>
+      item.brand.toLowerCase().includes(selected.value.toLowerCase()) ||
+      item.model.toLowerCase().includes(selected.value.toLowerCase())
+  );
+});
 
 const language = computed({
   get: () => locale.value,

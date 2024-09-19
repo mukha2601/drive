@@ -16,6 +16,11 @@ onMounted(async () => {
     const cars = await carResponse.json();
     store.carsAll = cars.data;
     store.filter = cars.data;
+    store.search = store.carsAll.map((item) => ({
+      id: item.id,
+      brand: item.brand.title,
+      model: item.model.name,
+    }));
 
     // Fetching brands
     const brandsResponse = await fetch("https://realauto.limsa.uz/api/brands/");
