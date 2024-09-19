@@ -4,7 +4,7 @@
   >
     <NuxtLink to="/" class="flex gap-4 items-center">
       <div
-        class="bg-orange-500 h-14 px-3 inset-0 flex justify-center items-center border-e-2"
+        class="bg-orange-500 h-[58px] px-3 inset-0 flex justify-center items-center border-e-2"
       >
         <UIcon
           name="arcticons:dsdrive"
@@ -19,7 +19,7 @@
       <NuxtLink class="hover:text-orange-500" to="/cars">
         {{ $t("header.cars").toUpperCase() }}
       </NuxtLink>
-      <NuxtLink class="hover:text-orange-500" to="/">
+      <NuxtLink class="hover:text-orange-500" to="/brands">
         {{ $t("header.brands").toUpperCase() }}
       </NuxtLink>
       <NuxtLink class="hover:text-orange-500" to="/service">
@@ -50,12 +50,14 @@
         >
           EN
         </button>
-        
       </div>
       <button
         class="h-full px-4 hover:bg-orange-500 flex justify-center items-center"
       >
-        <UIcon name="material-symbols:dark-mode-outline-rounded" class="w-6 h-6" />
+        <UIcon
+          name="material-symbols:dark-mode-outline-rounded"
+          class="w-6 h-6"
+        />
       </button>
       <div class="search p-2 max-[600px]:hidden border-s-2">
         <input
@@ -64,18 +66,76 @@
           placeholder="search"
         />
       </div>
-      <button
+      <!-- <button
+        @click="store.isOpen = true"
         class="h-full px-4 hover:bg-orange-500 flex justify-center items-center border-s-2 min-[1000px]:hidden"
       >
         <UIcon name="material-symbols:menu" class="w-8 h-8" />
-      </button>
+      </button> -->
+      <UPopover overlay>
+        <button
+          class="h-[58px] px-4 hover:bg-orange-500 flex justify-center items-center border-s-2 min-[1100px]:hidden"
+        >
+          <UIcon name="material-symbols:menu" class="w-8 h-8" />
+        </button>
+
+        <template #panel="{ close }">
+          <div class="p-4 bg-white border-none">
+            <nav class="h-full flex flex-col gap-4 px-4 items-center">
+              <NuxtLink
+                @click="close()"
+                class="hover:text-orange-500"
+                to="/cars"
+              >
+                {{ $t("header.cars").toUpperCase() }}
+              </NuxtLink>
+              <NuxtLink
+                @click="close()"
+                class="hover:text-orange-500"
+                to="/brands"
+              >
+                {{ $t("header.brands").toUpperCase() }}
+              </NuxtLink>
+              <NuxtLink
+                @click="close()"
+                class="hover:text-orange-500"
+                to="/service"
+              >
+                {{ $t("header.services").toUpperCase() }}
+              </NuxtLink>
+              <NuxtLink
+                @click="close()"
+                class="hover:text-orange-500"
+                to="/about"
+              >
+                {{ $t("header.about").toUpperCase() }}
+              </NuxtLink>
+              <NuxtLink
+                @click="close()"
+                class="hover:text-orange-500"
+                to="/contacts"
+              >
+                {{ $t("header.contacts").toUpperCase() }}
+              </NuxtLink>
+              <NuxtLink
+                @click="close()"
+                class="hover:text-orange-500"
+                to="/blog"
+              >
+                {{ $t("header.blog").toUpperCase() }}
+              </NuxtLink>
+            </nav>
+          </div>
+        </template>
+      </UPopover>
     </div>
   </div>
 </template>
 
 <script setup>
+import { useStore } from "@/store";
+const store = useStore();
 import { useI18n } from "vue-i18n";
-// I18n hookini olamiz
 const { locale, setLocale } = useI18n();
 
 const language = computed({

@@ -5,13 +5,6 @@ export const useStore = defineStore("home", {
     return {
       carsAll: [],
       brands: [],
-      // budgetCars: [],
-      // sportCars: [],
-      // luxuryCars: [],
-      // muscleCars: [],
-      // convertibleCars: [],
-      // suvCars: [],
-      // americanCars: [],
       filter: [],
       category: [],
       carType: null,

@@ -26,7 +26,7 @@ const props = defineProps({
       />
     </div>
     <p class="text-xs sm:text-sm lg:text-lg">
-      {{ item.brand.title + " " + item.model.name.slice(0, 16) }}
+      {{ item.brand.title + " " + item.model.name.slice(0, 8) }}
     </p>
     <p class="text-xs sm:text-sm lg:text-lg">
       <span class="text-orange-500 group-hover:text-white">price:</span>

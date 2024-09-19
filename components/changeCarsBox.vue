@@ -28,10 +28,7 @@ defineProps({
       :slidesPerView="1.5"
       :spaceBetween="20"
       :breakpoints="{
-        420: {
-          slidesPerView: 1.5,
-          spaceBetween: 20,
-        },
+
         640: {
           slidesPerView: 2.5,
           spaceBetween: 20,
@@ -41,7 +38,7 @@ defineProps({
           spaceBetween: 20,
         },
         1024: {
-          slidesPerView: 4.5,
+          slidesPerView: 3.5,
           spaceBetween: 20,
         },
       }"

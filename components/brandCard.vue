@@ -1,9 +1,9 @@
 <template>
   <NuxtLink to="/cars" @click="store.getCarBrand(brands.id)">
     <div
-      class="max-h-40 flex flex-col gap-4 justify-center items-center py-4 border-2 hover:bg-orange-500"
+      class="max-h-40 flex flex-col gap-4 justify-center items-center py-4 px-4 border-2 hover:bg-orange-500"
     >
-      <NuxtImg :src="imgUrl + brands.image_src" class="h-12" />
+      <NuxtImg :src="imgUrl + brands.image_src" class="max-h-12" />
       <p>{{ brands.title }}</p>
     </div>
   </NuxtLink>

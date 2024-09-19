@@ -24,18 +24,20 @@ const nextSlide = () => {
     swiper.slideNext();
   }
 };
+const isOpen = ref(false);
 </script>
 
 <template>
+  
   <section id="hero" class="w-full border-2 border-t-0 shadow-2xl">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
       <div
         class="left w-full border-e-2 h-full flex flex-col max-sm:items-center gap-4 md:gap-6 p-4 md:p-6"
       >
-        <h1 class="text-[16px] sm:text-[22px] lg:text-[40px] leading-10">
+        <h1 class="text-[16px] sm:text-[22px] lg:text-[36px] leading-14">
           {{ $t("hero.title") }}
         </h1>
-        <p class="text-sm lg:text-[20px] font-thin">
+        <p class="text-sm lg:text-[18px] leading-6 font-thin">
           {{ $t("hero.subtitle") }}
         </p>
         <Button :label="$t('hero.button1')" />

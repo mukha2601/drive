@@ -28,19 +28,13 @@ const setThumbsSwiper = (swiper) => {
 
 <template>
   <Section>
-    <div class="grid grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
       <div class="w-full" v-if="selectedCarItem && selectedCarItem.car_images">
         <swiper
-          :style="{
-            '--swiper-navigation-color': '#fff',
-            '--swiper-pagination-color': '#fff',
-          }"
           :loop="true"
-          :spaceBetween="10"
-          :navigation="true"
           :thumbs="{ swiper: thumbsSwiper }"
           :modules="modules"
-          class="mySwiper2"
+          class="mySwiper2 max-w-md"
         >
           <swiper-slide
             v-for="(image, index) in selectedCarItem.car_images.filter(
@@ -48,7 +42,7 @@ const setThumbsSwiper = (swiper) => {
             )"
             :key="index"
           >
-            <NuxtImg :src="imgUrl + image.image.src" />
+            <NuxtImg class="w-[800px]" :src="imgUrl + image.image.src" />
           </swiper-slide>
         </swiper>
         <swiper
@@ -72,10 +66,10 @@ const setThumbsSwiper = (swiper) => {
         </swiper>
       </div>
       <div
-        class="w-full max-h-[600px] flex flex-col gap-4 justify-between"
+        class="w-full flex flex-col gap-4 justify-between"
         v-if="selectedCarItem"
       >
-        <h1 class="text-3xl">
+        <h1 class="text-xl md:text-3xl">
           {{
             selectedCarItem.brand.title +
             " " +
@@ -84,7 +78,7 @@ const setThumbsSwiper = (swiper) => {
             `(${selectedCarItem.color})`
           }}
         </h1>
-        <ul class="grid grid-cols-2">
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2">
           <li>
             <span class="text-orange-500 group-hover:text-white">{{
               $t("carsinfo.price")
@@ -116,7 +110,7 @@ const setThumbsSwiper = (swiper) => {
           </li>
         </ul>
         <ul
-          class="grid grid-cols-3 gap-2 [&>li]:p-2 [&>li]:flex [&>li]:gap-4 [&>li]:bg-gray-300 [&>li]:items-center [&>li]:justify-center"
+          class="grid grid-cols-2 sm:grid-cols-3 gap-2 [&>li]:p-2 [&>li]:flex [&>li]:gap-4 [&>li]:bg-gray-300 [&>li]:items-center [&>li]:justify-center"
         >
           <li>
             <UIcon
@@ -163,13 +157,13 @@ const setThumbsSwiper = (swiper) => {
               {{
                 store.category.find(
                   (item) => item.id == selectedCarItem.category_id
-                ).name_en
+                )?.name_en
               }}
             </p>
           </li>
         </ul>
         <form
-          class="grid grid-cols-2 gap-3 [&>input]:bg-gray-300 [&>input]:p-3 [&>input]:bg-transparent [&>input]:border-2 border-2 p-3"
+          class="grid grid-cols-1 sm:grid-cols-2 gap-3 [&>input]:bg-gray-300 [&>input]:p-3 [&>input]:bg-transparent [&>input]:border-2 border-2 p-3"
         >
           <input placeholder="Name" type="text" required />
           <input placeholder="Phone" type="number" min="8" required />
@@ -181,12 +175,14 @@ const setThumbsSwiper = (swiper) => {
           <NuxtLink
             to="https://api.whatsapp.com/send/?phone=971527030189&text&type=phone_number&app_absent=0"
             class="border-2 p-1 flex items-center justify-center gap-2 hover:bg-orange-500"
-            ><UIcon name="nimbus:whatsapp" class="w-6 h-6" />Whats Up</NuxtLink
+            ><UIcon name="nimbus:whatsapp" class="w-6 h-6" />
+            <p class="max-sm:hidden">Whats Up</p></NuxtLink
           >
           <NuxtLink
             to="https://t.me/+971527030189"
             class="border-2 p-1 flex items-center justify-center gap-2 hover:bg-orange-500"
-            ><UIcon name="ri:telegram-line" class="w-6 h-6" />Telegram</NuxtLink
+            ><UIcon name="ri:telegram-line" class="w-6 h-6" />
+            <p class="max-sm:hidden">Telegram</p></NuxtLink
           >
           <NuxtLink
             to="tel:+971527030189"
@@ -194,8 +190,9 @@ const setThumbsSwiper = (swiper) => {
             ><UIcon
               name="material-symbols:call-outline-rounded"
               class="w-6 h-6"
-            />Phone</NuxtLink
-          >
+            />
+            <p class="max-sm:hidden">Phone</p>
+          </NuxtLink>
         </div>
       </div>
       <p
@@ -208,7 +205,9 @@ const setThumbsSwiper = (swiper) => {
     </div>
   </Section>
   <Section :label="$t('carsinfo.title')">
-    <main class="w-full grid grid-cols-4 gap-4">
+    <main
+      class="w-full grid max-sm:grid-cols-2 max-lg:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4"
+    >
       <div v-for="item in store.carsAll">
         <ChangeCarsCard :item="item" :route="route.params.id" />
       </div>
