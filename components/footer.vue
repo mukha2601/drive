@@ -1,7 +1,7 @@
 <template>
   <div class="w-full p-6 border-2 border-t-0">
-    <div class="grid grid-cols-3 space-x-6">
-      <ul class="flex flex-col justify-between gap-7">
+    <div class="grid max-[500px]:grid-cols-1 grid-cols-2 md:grid-cols-3 gap-4">
+      <ul class="flex flex-col justify-between gap-7 max-[500px]:col-span-1 max-md:col-span-2">
         <li>
           <NuxtLink to="/">
             <NuxtImg src="/logo.png" class="w-14 h-14 inset-0" />
@@ -33,7 +33,7 @@
           </div>
         </li>
       </ul>
-      <ul class="flex flex-col justify-between text-sm">
+      <ul class="flex flex-col justify-between gap-4 text-sm ">
         <li>
           <NuxtLink to="/cars" class="text-xl font-bold">{{
             $t("footer.cars").toLocaleUpperCase()
@@ -67,7 +67,7 @@
         </li>
         <li><NuxtLink to="/cars">Muscle</NuxtLink></li>
       </ul>
-      <ul class="flex flex-col justify-between text-sm">
+      <ul class="flex flex-col justify-between gap-4 text-sm">
         <li>
           <NuxtLink to="/blog" class="text-xl font-bold">{{
             $t("footer.brands").toLocaleUpperCase()
@@ -99,9 +99,9 @@
       </ul>
       <ul></ul>
     </div>
-    <div class="flex justify-between mt-4 pt-2 border-t-2 text-sm">
+    <div class="grid max-[500px]:grid-cols-1 grid-cols-2 gap-6 justify-between mt-4 pt-2 border-t-2 text-sm">
       <p>{{ $t("footer.terms1") }}</p>
-      <NuxtLink to="/terms-and-conditions">{{ $t("footer.terms2") }}</NuxtLink>
+      <NuxtLink class="flex min-[500px]:justify-end" to="/terms-and-conditions">{{ $t("footer.terms2") }}</NuxtLink>
     </div>
   </div>
 </template>

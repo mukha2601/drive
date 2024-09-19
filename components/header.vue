@@ -14,7 +14,7 @@
       </div>
     </NuxtLink>
     <nav
-      class="max-[1000px]:hidden h-full border-x-2 flex gap-4 px-4 items-center"
+      class="max-[1100px]:hidden h-full border-x-2 flex gap-4 px-4 items-center"
     >
       <NuxtLink class="hover:text-orange-500" to="/cars">
         {{ $t("header.cars").toUpperCase() }}
@@ -53,11 +53,11 @@
         
       </div>
       <button
-        class="h-full px-4 hover:bg-orange-500 flex justify-center items-center border-e-2"
+        class="h-full px-4 hover:bg-orange-500 flex justify-center items-center"
       >
-        <UIcon name="material-symbols:dark-mode-outline" class="w-6 h-6" />
+        <UIcon name="material-symbols:dark-mode-outline-rounded" class="w-6 h-6" />
       </button>
-      <div class="search p-2 max-[600px]:hidden">
+      <div class="search p-2 max-[600px]:hidden border-s-2">
         <input
           type="text"
           class="h-full bg-transparent border-2 ps-2 border-gray-400 outline-none focus:border-orange-500"
