@@ -5,6 +5,7 @@
       variant="outline"
       size="xl"
       :items="locale === 'ru' ? faqRu : faqEn"
+      :ui="{ color: 'black' }"
     />
   </Section>
 </template>

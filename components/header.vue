@@ -10,10 +10,12 @@
           name="arcticons:dsdrive"
           class="w-8 h-8 text-white font-bolder"
         />
-        <p class="text-2xl text-white">Drive</p>
+        <p class="text-2xl text-white max-[400px]:hidden">Drive</p>
       </div>
     </NuxtLink>
-    <div class="nav h-full border-x-2 flex gap-4 px-4 items-center">
+    <nav
+      class="max-[1000px]:hidden h-full border-x-2 flex gap-4 px-4 items-center"
+    >
       <NuxtLink class="hover:text-orange-500" to="/cars">
         {{ $t("header.cars").toUpperCase() }}
       </NuxtLink>
@@ -32,7 +34,7 @@
       <NuxtLink class="hover:text-orange-500" to="/blog">
         {{ $t("header.blog").toUpperCase() }}
       </NuxtLink>
-    </div>
+    </nav>
 
     <div class="flex h-full border-s-2">
       <div class="lang flex border-e-2">
@@ -49,13 +51,23 @@
           EN
         </button>
       </div>
-      <div class="search p-2">
+      <button
+        class="h-full px-4 hover:bg-orange-500 flex justify-center items-center border-e-2"
+      >
+        <UIcon name="material-symbols:dark-mode-outline" class="w-6 h-6" />
+      </button>
+      <div class="search p-2 max-[600px]:hidden">
         <input
           type="text"
           class="h-full bg-transparent border-2 ps-2 border-gray-400 outline-none focus:border-orange-500"
           placeholder="search"
         />
       </div>
+      <button
+        class="h-full px-4 hover:bg-orange-500 flex justify-center items-center border-s-2 min-[1000px]:hidden"
+      >
+        <UIcon name="material-symbols:menu" class="w-8 h-8" />
+      </button>
     </div>
   </div>
 </template>

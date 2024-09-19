@@ -145,7 +145,7 @@ const setThumbsSwiper = (swiper) => {
             <UIcon class="w-6 h-6" name="tabler:engine" />
             <p>{{ selectedCarItem.motor }}</p>
           </li>
-          <li>
+          <li class="col-span-2">
             <UIcon class="w-6 h-6" name="solar:transmission-circle-linear" />
             <p>{{ selectedCarItem.transmission }}</p>
           </li>
@@ -157,13 +157,13 @@ const setThumbsSwiper = (swiper) => {
             <UIcon class="w-6 h-6" name="lucide:fuel" />
             <p>{{ selectedCarItem.petrol }}</p>
           </li>
-          <li>
+          <li class="col-span-2">
             <UIcon class="w-6 h-6" name="ph:car" />
             <p>
               {{
-                store.category
-                  .find((item) => item.id == selectedCarItem.category_id)
-                  .name_en.slice(0, 6) + ".."
+                store.category.find(
+                  (item) => item.id == selectedCarItem.category_id
+                ).name_en
               }}
             </p>
           </li>
