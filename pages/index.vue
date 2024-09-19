@@ -28,17 +28,19 @@ const nextSlide = () => {
 
 <template>
   <section id="hero" class="w-full border-2 border-t-0 shadow-2xl">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-1">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
       <div
-        class="left w-full border-e-2 h-full flex flex-col justify-between gap-6 p-6"
+        class="left w-full border-e-2 h-full flex flex-col max-sm:items-center gap-4 md:gap-6 p-4 md:p-6"
       >
         <h1 class="text-[16px] sm:text-[22px] lg:text-[40px] leading-10">
           {{ $t("hero.title") }}
         </h1>
-        <p class="text-[20px] font-thin">{{ $t("hero.subtitle") }}</p>
+        <p class="text-sm lg:text-[20px] font-thin">
+          {{ $t("hero.subtitle") }}
+        </p>
         <Button :label="$t('hero.button1')" />
       </div>
-      <div class="right lg:col-span-2 h-full p-4 relative">
+      <div class="right md:col-span-2 h-full p-4 relative">
         <div
           class="w-[50%] h-full bg-orange-500 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         ></div>
@@ -57,7 +59,7 @@ const nextSlide = () => {
         >
           <SwiperSlide :zoom="true" v-for="item in store.carsAll">
             <NuxtImg
-              class="max-w-[500px] mb-10 min-h-96"
+              class="max-w-[500px] mb-10"
               :src="
                 imgUrl +
                   item.car_images.find((image) => image.is_main)?.image.src ||
@@ -84,13 +86,13 @@ const nextSlide = () => {
   <Section id="brands" :label="$t('brands.title')">
     <Swiper
       :breakpoints="{
-        420: {
-          slidesPerView: 1.5,
+        450: {
+          slidesPerView: 2.5,
           spaceBetween: 20,
           grid: { rows: 2, fill: 'row' },
         },
         640: {
-          slidesPerView: 1.5,
+          slidesPerView: 3.5,
           spaceBetween: 20,
           grid: { rows: 2, fill: 'row' },
         },
@@ -131,21 +133,25 @@ const nextSlide = () => {
   <Service />
   <Section>
     <div class="flex flex-col gap-4">
-      <h1 class="text-4xl">{{ $t("luxury.title1") }}</h1>
-      <p>{{ $t("luxury.subtitle1") }}</p>
+      <h1 class="text-md sm:text-2xl md:text-4xl">{{ $t("luxury.title1") }}</h1>
+      <p class="text-xs sm:text-lg md:text-xl font-thin">
+        {{ $t("luxury.subtitle1") }}
+      </p>
     </div>
     <div class="flex flex-col gap-4 mt-4">
-      <h1 class="text-4xl">
+      <h1 class="text-md sm:text-2xl md:text-4xl">
         {{ $t("luxury.title2") }}
       </h1>
-      <p>{{ $t("luxury.subtitle2") }}</p>
+      <p class="text-xs sm:text-lg md:text-xl font-thin">
+        {{ $t("luxury.subtitle2") }}
+      </p>
     </div>
   </Section>
   <Section>
-    <div class="flex gap-4">
-      <div class="w-1/2 h-80 border-2">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="w-full">
         <iframe
-          class="w-full h-full"
+          class="w-full h-60 sm:h-96 md:h-[400px]"
           src="https://www.youtube.com/embed/6Bcg46rxqAE?si=Dq3CtBVkMd5Rg8EG"
           title="YouTube video player"
           frameborder="0"
@@ -154,9 +160,13 @@ const nextSlide = () => {
           allowfullscreen
         ></iframe>
       </div>
-      <div class="w-1/2 flex flex-col gap-4 justify-around">
-        <h1 class="text-4xl">{{ $t("videopage.title") }}</h1>
-        <p>{{ $t("videopage.subtitle") }}</p>
+      <div class="w-full flex flex-col gap-4 justify-around">
+        <h1 class="text-md sm:text-2xl md:text-4xl">
+          {{ $t("videopage.title") }}
+        </h1>
+        <p class="text-xs sm:text-lg md:text-xl font-thin">
+          {{ $t("videopage.subtitle") }}
+        </p>
         <NuxtLink to="/cars">
           <Button :label="$t('videopage.button')" />
         </NuxtLink>
