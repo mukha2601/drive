@@ -6,8 +6,8 @@ import "swiper/swiper-bundle.css";
 import { useStore } from "@/store";
 const store = useStore();
 let swiper = null;
-const config = useRuntimeConfig();
-const imgUrl = config.public.VITE_IMGURL;
+// const config = useRuntimeConfig();
+// const imgUrl = config.public.VITE_IMGURL;
 const category = computed(() => store.category);
 const loading = computed(() => !store.category || store.category.length === 0);
 
@@ -57,7 +57,7 @@ const nextSlide = () => {
           <SwiperSlide :zoom="true" v-for="item in store.carsAll">
             <NuxtImg
               :src="
-                imgUrl +
+                'https://realauto.limsa.uz/api/uploads/images/' +
                   item.car_images.find((image) => image.is_main)?.image.src ||
                 item.car_images[0].image.src
               "
