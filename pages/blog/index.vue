@@ -14,6 +14,7 @@ const { locale } = useI18n();
 const itemsEn = [
   {
     id: 1,
+    link: "/blog/blogview1",
     image: "/images/blog (1).jpg",
     title: "Top 3 Destinations to Visit in Dubai in a Rental Car",
     data: "25 Seb 2022",
@@ -22,6 +23,7 @@ const itemsEn = [
   },
   {
     id: 2,
+    link: "/blog/blogview2",
     image: "/images/blog (2).jpg",
     title: "Top 5 wonderful spots for a car photo session in Dubai",
     data: "11 Feb 2022",
@@ -30,6 +32,7 @@ const itemsEn = [
   },
   {
     id: 3,
+    link: "/blog/blogview3",
     image: "/images/blog (3).jpg",
     title: "Top 5 Reasons to Rent a Car Dubai Style this Summer",
     data: "31 Jul 2022",
@@ -41,6 +44,7 @@ const itemsEn = [
 const itemsRu = [
   {
     id: 1,
+    link: "/blog/blogview1",
     image: "/images/blog (1).jpg",
     title: "Топ-3 места для посещения в Дубае на арендованной машине",
     data: "25 сен 2022",
@@ -49,6 +53,7 @@ const itemsRu = [
   },
   {
     id: 2,
+    link: "/blog/blogview2",
     image: "/images/blog (2).jpg",
     title: "Топ-5 замечательных мест для фотосессии с автомобилем в Дубае",
     data: "11 фев 2022",
@@ -57,6 +62,7 @@ const itemsRu = [
   },
   {
     id: 3,
+    link: "/blog/blogview3",
     image: "/images/blog (3).jpg",
     title: "Топ-5 причин арендовать автомобиль в Дубае этим летом",
     data: "31 июл 2022",

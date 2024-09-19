@@ -25,7 +25,7 @@ const props = defineProps({
         class="w-full"
       />
     </div>
-    <p class="text-bold">{{ item.brand.title + " " + item.model.name }}</p>
+    <p class="text-bold">{{ item.brand.title + " " + item.model.name.slice(0,16) }}</p>
     <p>
       <span class="text-orange-500 group-hover:text-white">price:</span>
       {{ item.price_in_aed + " aed / " + item.price_in_usd + " usd" }}

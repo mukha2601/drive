@@ -6,7 +6,9 @@
       <p>{{ item.descr }}</p>
       <div class="flex justify-between items-center w-full">
         <span>{{ item.data }}</span>
-        <Button label="laern more" />
+        <NuxtLink :to="item.link">
+          <Button label="laern more" />
+        </NuxtLink>
       </div>
     </div>
   </div>
