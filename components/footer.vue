@@ -1,10 +1,20 @@
 <template>
   <div class="w-full p-4 md:p-6 border-2 border-t-0">
     <div class="grid max-[500px]:grid-cols-1 grid-cols-2 md:grid-cols-3 gap-4">
-      <ul class="flex flex-col justify-between gap-7 max-[500px]:col-span-1 max-md:col-span-2">
+      <ul
+        class="flex flex-col justify-between gap-7 max-[500px]:col-span-1 max-md:col-span-2"
+      >
         <li>
-          <NuxtLink to="/">
-            <NuxtImg src="/logo.png" class="w-14 h-14 inset-0" />
+          <NuxtLink to="/" class="flex gap-4 items-center">
+            <div
+              class="bg-orange-500 h-[58px] px-3 inset-0 flex justify-center items-center border-e-2"
+            >
+              <UIcon
+                name="arcticons:dsdrive"
+                class="w-8 h-8 text-white font-bolder"
+              />
+              <p class="text-2xl text-white max-[400px]:hidden">Drive</p>
+            </div>
           </NuxtLink>
         </li>
         <li class="text-md md:text-xl">{{ $t("footer.title") }}</li>
@@ -99,9 +109,15 @@
       </ul>
       <ul></ul>
     </div>
-    <div class="grid max-[500px]:grid-cols-1 grid-cols-2 gap-6 justify-between mt-4 pt-2 border-t-2 text-sm">
+    <div
+      class="grid max-[500px]:grid-cols-1 grid-cols-2 gap-6 justify-between mt-4 pt-2 border-t-2 text-sm"
+    >
       <p>{{ $t("footer.terms1") }}</p>
-      <NuxtLink class="flex min-[500px]:justify-end" to="/terms-and-conditions">{{ $t("footer.terms2") }}</NuxtLink>
+      <NuxtLink
+        class="flex min-[500px]:justify-end"
+        to="/terms-and-conditions"
+        >{{ $t("footer.terms2") }}</NuxtLink
+      >
     </div>
   </div>
 </template>

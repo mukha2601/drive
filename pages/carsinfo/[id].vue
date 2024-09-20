@@ -1,12 +1,63 @@
 <script setup>
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { useStore } from "@/store/index";
-import { useRuntimeConfig } from "#app";
+// import { useRuntimeConfig } from "#app";
+// const toast = useToast();
+
+const formData = ref({
+  name: "",
+  phone: "",
+  period: "",
+  details: "",
+  token: "your-telegram-bot-token",
+  chat_id: "your-chat-id",
+});
+
+const loading = useState("loading", () => false);
+
+const submitForm = async () => {
+  loading.value = true;
+
+  const messageContent = `Ismi: ${formData.value.name}
+    \nPhone: ${formData.value.phone}
+    \nPeriod: ${formData.value.period}
+    \nDetails: ${formData.value.details}`;
+
+  try {
+    const response = await $fetch(
+      `https://api.telegram.org/bot${formData.value.token}/sendMessage`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: formData.value.chat_id,
+          text: messageContent,
+        }),
+      }
+    );
+
+    if (response.ok) {
+      // Reset form after successful submission
+      formData.value.name = "";
+      formData.value.phone = "";
+      formData.value.period = "";
+      formData.value.details = "";
+      // Optionally, add a success notification here
+    }
+  } catch (error) {
+    console.error("Yuborilmadi: ", error);
+    // Optionally, handle error or display a message
+  } finally {
+    loading.value = false;
+  }
+};
 
 const store = useStore();
 const route = useRoute();
-const config = useRuntimeConfig();
-const imgUrl = config.public.VITE_IMGURL;
+// const config = useRuntimeConfig();
+// const imgUrl = config.public.VITE_IMGURL;
 
 const carId = route.params.id; // Get carId from route params
 
@@ -42,7 +93,13 @@ const setThumbsSwiper = (swiper) => {
             )"
             :key="index"
           >
-            <NuxtImg class="w-[800px]" :src="imgUrl + image.image.src" />
+            <NuxtImg
+              class="w-[800px]"
+              :src="
+                'https://realauto.limsa.uz/api/uploads/images/' +
+                image.image.src
+              "
+            />
           </swiper-slide>
         </swiper>
         <swiper
@@ -61,7 +118,12 @@ const setThumbsSwiper = (swiper) => {
             )"
             :key="index"
           >
-            <NuxtImg :src="imgUrl + image.image.src" />
+            <NuxtImg
+              :src="
+                'https://realauto.limsa.uz/api/uploads/images/' +
+                image.image.src
+              "
+            />
           </swiper-slide>
         </swiper>
       </div>
@@ -163,12 +225,25 @@ const setThumbsSwiper = (swiper) => {
           </li>
         </ul>
         <form
+          id="myForm"
+          @submit.prevent="submitForm"
           class="grid grid-cols-1 sm:grid-cols-2 gap-3 [&>input]:bg-gray-300 [&>input]:p-3 [&>input]:bg-transparent [&>input]:border-2 border-2 p-3"
         >
-          <input placeholder="Name" type="text" required />
-          <input placeholder="Phone" type="number" min="8" required />
-          <input placeholder="Period" type="text" />
-          <input placeholder="Details" type="text" />
+          <input
+            v-model="formData.name"
+            placeholder="Name"
+            type="text"
+            required
+          />
+          <input
+            v-model="formData.phone"
+            placeholder="Phone"
+            type="number"
+            min="8"
+            required
+          />
+          <input v-model="formData.period" placeholder="Period" type="text" />
+          <input v-model="formData.details" placeholder="Details" type="text" />
           <Button :label="$t('carsinfo.button')" type="submit" />
         </form>
         <div class="grid grid-cols-3 gap-4">
