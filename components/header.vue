@@ -39,7 +39,7 @@
     <div class="flex h-full border-s-2">
       <div class="lang flex border-e-2">
         <button
-          class="h-full px-4 border-e-2 hover:bg-orange-500"
+          class="h-full px-4 border-e-2 active:bg-orange-500"
           @click="language = 'ru'"
         >
           RU

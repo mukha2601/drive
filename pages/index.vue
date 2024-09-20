@@ -67,7 +67,7 @@ const nextSlide = () => {
         </Swiper>
         <div class="absolute bottom-4 right-4 flex gap-4 z-10">
           <Button
-            class="bg-[#e3e4e6]"
+            class="bg-[#e3e4e6] active:bg-red-500"
             :label="$t('hero.button2')"
             @click="prevSlide"
           />
